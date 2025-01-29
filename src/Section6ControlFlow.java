@@ -11,7 +11,7 @@ public class Section6ControlFlow {
 //        lesson61();
 //        lesson62();
 //        lesson63();
-//        lesson65();
+        lesson65();
 //        lesson66();
 //        lesson67();
 //        lesson68();
@@ -203,7 +203,31 @@ public class Section6ControlFlow {
     }
 
     private static void lesson65() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 65: The while and do while statements\n");
+
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(i);
+        }
+
+        int j = 1;
+        boolean isReady = false;
+        do {
+            if (j > 5) {
+                break;
+            }
+            System.out.println(j);
+            j++;
+            isReady = (j > 0);
+        } while (isReady);
+
+        int number = 0;
+        while (number < 50) {
+            number += 5;
+            if (number % 25 == 0) {
+                continue;
+            }
+            System.out.print(number + "_");
+        }
 
         System.out.println();
     }
