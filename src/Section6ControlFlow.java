@@ -6,20 +6,20 @@ public class Section6ControlFlow {
     public static void main() {
         System.out.println("Section 6: Control Flow");
 
-//        lesson57();
-//        lesson58();
-//        lesson59();
-//        lesson60();
-//        lesson61();
-//        lesson62();
-//        lesson63();
-//        lesson65();
-//        lesson66();
-//        lesson67();
-//        lesson71();
-//        lesson72();
-//        lesson73();
-//        lesson74();
+        lesson57();
+        lesson58();
+        lesson59();
+        lesson60();
+        lesson61();
+        lesson62();
+        lesson63();
+        lesson65();
+        lesson66();
+        lesson67();
+        lesson71();
+        lesson72();
+        lesson73();
+        lesson74();
         lesson75();
 
     }
