@@ -14,7 +14,6 @@ public class Section6ControlFlow {
 //        lesson65();
 //        lesson66();
 //        lesson67();
-//        lesson70();
 //        lesson71();
 //        lesson72();
 //        lesson73();
@@ -284,12 +283,6 @@ public class Section6ControlFlow {
             sum += number;
             return sum;
         }
-    }
-
-    private static void lesson70() {
-        System.out.println("Lesson xx: XX\n");
-
-        System.out.println();
     }
 
     private static void lesson71() {
