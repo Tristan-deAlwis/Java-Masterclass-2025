@@ -6,8 +6,8 @@ public class Section6ControlFlow {
 
 //        lesson57();
 //        lesson58();
-        lesson59();
-//        lesson60();
+//        lesson59();
+        lesson60();
 //        lesson61();
 //        lesson62();
 //        lesson63();
@@ -38,7 +38,9 @@ public class Section6ControlFlow {
             case 2:
                 System.out.println("Value was 2");
                 break;
-            case 3: case 4: case 5:
+            case 3:
+            case 4:
+            case 5:
                 System.out.println("Was a 3, a 4, or a 5");
                 System.out.println("Actually it was a " + switchValue);
                 break;
@@ -71,7 +73,7 @@ public class Section6ControlFlow {
         System.out.println();
     }
 
-    public static String getQuarter (String month) {
+    public static String getQuarter(String month) {
         return switch (month) {
             case "JANUARY", "FEBRUARY", "MARCH" -> "1st";
             case "APRIL", "MAY", "JUNE" -> "2nd";
@@ -95,104 +97,128 @@ public class Section6ControlFlow {
             case 'D' -> System.out.println("D is Delta");
             case 'E' -> System.out.println("E is Echo");
             default -> System.out.println("bad char");
-        };
+        }
+        ;
 
         System.out.println();
     }
 
     private static void lesson60() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 60: A Switch Expression Challenge\n");
+
+        printDayOfWeek(0);
+        printDayOfWeek(1);
+        printDayOfWeek(2);
+        printDayOfWeek(3);
+        printDayOfWeek(4);
+        printDayOfWeek(5);
+        printDayOfWeek(6);
+        printDayOfWeek(7);
 
         System.out.println();
     }
 
-    private static void lesson61() {
-        System.out.println("Lesson xx: XX\n");
-
-        System.out.println();
+    public static void printDayOfWeek(int day) {
+        String dayOfTheWeek = switch (day) {
+            case 0 -> dayOfTheWeek = "Sunday";
+            case 1 -> dayOfTheWeek = "Monday";
+            case 2 -> dayOfTheWeek = "Tuesday";
+            case 3 -> dayOfTheWeek = "Wednesday";
+            case 4 -> dayOfTheWeek = "Thursday";
+            case 5 -> dayOfTheWeek = "Friday";
+            case 6 -> dayOfTheWeek = "Saturday";
+            default -> dayOfTheWeek = "Invalid Day";
+        };
+        System.out.println(day + " stands for " + dayOfTheWeek);
     }
 
-    private static void lesson62() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson61() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
 
-    private static void lesson63() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson62() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
 
-    private static void lesson64() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson63() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
 
-    private static void lesson65() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson64() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
 
-    private static void lesson66() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson65() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
 
-    private static void lesson67() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson66() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
 
-    private static void lesson68() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson67() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
 
-    private static void lesson69() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson68() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
 
-    private static void lesson70() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson69() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
 
-    private static void lesson71() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson70() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
 
-    private static void lesson72() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson71() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
 
-    private static void lesson73() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson72() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
 
-    private static void lesson74() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson73() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
 
-    private static void lesson75() {
-        System.out.println("Lesson xx: XX\n");
+private static void lesson74() {
+    System.out.println("Lesson xx: XX\n");
 
-        System.out.println();
-    }
+    System.out.println();
+}
+
+private static void lesson75() {
+    System.out.println("Lesson xx: XX\n");
+
+    System.out.println();
+}
 }
