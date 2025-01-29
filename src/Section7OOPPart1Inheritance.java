@@ -5,8 +5,8 @@ public class Section7OOPPart1Inheritance {
         System.out.println("Section 6: Control Flow");
 
 //        lesson77();
-        lesson78();
-//        lesson79();
+//        lesson78();
+        lesson79();
 //        lesson80();
 //        lesson81();
 //        lesson82();
@@ -60,7 +60,14 @@ public class Section7OOPPart1Inheritance {
         }
 
         public void setMake(String make) {
-            this.make = make;
+            if (make == null) make = "Unknown";
+            String lowercaseMake = make.toLowerCase();
+            switch (lowercaseMake) {
+                case "holden", "porsche", "tesla" -> this.make = make;
+                default -> {
+                    this.make = "Unsupported";
+                }
+            }
         }
 
         public void setModel(String model) {
@@ -97,15 +104,34 @@ public class Section7OOPPart1Inheritance {
 //        car.make() = "Porsche";
 //        car.model() = "Carrera";
 //        car.color() = "Red";
-        System.out.println("make =" + car.getMake());
-        System.out.println("model =" + car.getModel());
+        System.out.println("make = " + car.getMake());
+        System.out.println("model = " + car.getModel());
         car.describeCar();
 
         System.out.println();
     }
 
     private static void lesson79() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 79: Classes, Using Setters, and Creating Objects\n");
+
+        // "this" is a special keyword in java
+
+        Car car = new Car();
+        car.setMake("Maserati");
+        car.setModel("Carrera");
+        car.setDoors(2);
+        car.setConvertible(true);
+        car.setColor("black");
+        System.out.println("make = " + car.getMake());
+        System.out.println("model = " + car.getModel());
+        car.describeCar();
+
+        Car targa = new Car();
+        car.setMake("Porsche");
+        car.setModel("Targa");
+        car.setDoors(2);
+        car.setConvertible(false);
+        car.setColor("red");
 
         System.out.println();
     }
