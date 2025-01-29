@@ -1,7 +1,7 @@
 package src;
 
 public class Section4IntelliJBasics { //A class
-    public static void main() {
+    public static void main(String[] args) {
         System.out.println("Section 4: IntelliJ Basics");
 
         lesson33();

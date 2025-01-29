@@ -1,7 +1,7 @@
 package src;
 
 public class Section3FirstSteps {
-    public static void main() {
+    public static void main(String[] args) {
         System.out.println("Section 3: First Steps");
 
         lesson26();
