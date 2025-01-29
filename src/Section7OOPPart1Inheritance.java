@@ -24,9 +24,30 @@ public class Section7OOPPart1Inheritance {
     }
 
     private static void lesson77() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 77: Introduction to Classes and Objects\n");
+
+
 
         System.out.println();
+    }
+
+    public class Car {
+
+        private String make;
+        private String model;
+        private String color;
+        private int doors;
+        private boolean convertible;
+
+        public void describeCar() {
+            System.out.println(doors + "-Door " +
+                    color + " " +
+                    make + " " +
+                    model + " " +
+                    (convertible ? "Convertible" : ""));
+        }
+
+
     }
 
     private static void lesson78() {
