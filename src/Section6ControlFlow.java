@@ -11,8 +11,8 @@ public class Section6ControlFlow {
 //        lesson61();
 //        lesson62();
 //        lesson63();
-        lesson65();
-//        lesson66();
+//        lesson65();
+        lesson66();
 //        lesson67();
 //        lesson68();
 //        lesson69();
@@ -233,9 +233,34 @@ public class Section6ControlFlow {
     }
 
     private static void lesson66() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 66: The while Loop Challenge Exercise\n");
+
+        int i = 5;
+        int countEven = 0;
+        int countOdd = 0;
+
+        while (i <= 20) {
+            if (isEvenNumber(i)) {
+                System.out.println(i + " is an even number");
+                countEven++;
+                if (countEven >= 5) {
+                    break;
+                }
+            } else {
+                countOdd++;
+            }
+            i++;
+        }
+        System.out.println(countEven + " even numbers");
+        System.out.println(countOdd + " odd numbers");
 
         System.out.println();
+    }
+
+    public static boolean isEvenNumber(int number) {
+        boolean answer = false;
+        answer = number % 2 == 0;
+        return answer;
     }
 
     private static void lesson67() {
