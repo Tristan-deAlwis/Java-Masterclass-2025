@@ -6,8 +6,8 @@ public class Section7OOPPart1Inheritance {
 
 //        lesson77();
 //        lesson78();
-        lesson79();
-//        lesson80();
+//        lesson79();
+        lesson80();
 //        lesson81();
 //        lesson82();
 //        lesson83();
@@ -137,9 +137,88 @@ public class Section7OOPPart1Inheritance {
     }
 
     private static void lesson80() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 80: Classes Challenge Exercise\n");
+
+        Account account = new Account();
+        account.setNumber("10_000.00");
+        account.setBalance(10_000.00);
+        account.setCustomerName("Marty Giver");
+        account.setEmail("mgiver@email.com");
+        account.setPhoneNumber("555-555-555");
+
+        account.withdrawal(10_001);
+        account.deposit(-1);
+        account.deposit(1);
+        account.withdrawal(10_001);
 
         System.out.println();
+    }
+
+    public static class Account {
+        private String number;
+        private double balance;
+        private String customerName;
+        private String email;
+        private String phoneNumber;
+
+        public String getNumber() {
+            return number;
+        }
+
+        public void setNumber(String number) {
+            this.number = number;
+        }
+
+        public double getBalance() {
+            return balance;
+        }
+
+        public void setBalance(double balance) {
+            this.balance = balance;
+        }
+
+        public String getCustomerName() {
+            return customerName;
+        }
+
+        public void setCustomerName(String customerName) {
+            this.customerName = customerName;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public String getPhoneNumber() {
+            return phoneNumber;
+        }
+
+        public void setPhoneNumber(String phoneNumber) {
+            this.phoneNumber = phoneNumber;
+        }
+
+        public void deposit (int amount) {
+            if (amount < 0) {
+                System.out.println("Must be a positive deposit");
+            } else {
+                this.balance = balance + amount;
+                System.out.println("New balance: " + balance);
+            }
+
+        }
+
+        public void withdrawal (int amount) {
+            if (this.balance - amount < 0) {
+                System.out.println("Insufficient funds");
+            } else {
+                this.balance = balance - amount;
+                System.out.println("New balance: " + balance);
+            }
+        }
     }
 
     private static void lesson81() {
