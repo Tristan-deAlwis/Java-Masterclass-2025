@@ -4,8 +4,8 @@ public class Section6ControlFlow {
     public static void main() {
         System.out.println("Section 6: Control Flow");
 
-        lesson57();
-//        lesson58();
+//        lesson57();
+        lesson58();
 //        lesson59();
 //        lesson60();
 //        lesson61();
@@ -51,9 +51,37 @@ public class Section6ControlFlow {
     }
 
     private static void lesson58() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 59: More switch statement\n");
+
+        int switchValue = 3;
+
+        switch (switchValue) {
+            case 1 -> System.out.println("Value was 1");
+            case 2 -> System.out.println("Value was 2");
+            case 3, 4, 5 -> {
+                System.out.println("Was a 3, a 4, or a 5");
+                System.out.println("Actually it was a " + switchValue);
+            }
+            default -> System.out.println("Was not 1, 2, 3, 4, 5");
+        }
+
+        String month = "APRIL";
+        System.out.println(month + " is in the " + getQuarter(month) + " quarter");
 
         System.out.println();
+    }
+
+    public static String getQuarter (String month) {
+        return switch (month) {
+            case "JANUARY", "FEBRUARY", "MARCH" -> "1st";
+            case "APRIL", "MAY", "JUNE" -> "2nd";
+            case "JULY", "AUGUST", "SEPTEMBER" -> "3rd";
+            case "OCTOBER", "NOVEMBER", "DECEMBER" -> "4th";
+            default -> {
+                String badResponse = month + " is bad";
+                yield badResponse;
+            }
+        };
     }
 
     private static void lesson59() {
