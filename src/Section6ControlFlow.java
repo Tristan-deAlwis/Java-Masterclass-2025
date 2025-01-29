@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Scanner;
+
 public class Section6ControlFlow {
     public static void main(String[] args) {
         System.out.println("Section 6: Control Flow");
@@ -14,8 +16,8 @@ public class Section6ControlFlow {
 //        lesson65();
 //        lesson66();
 //        lesson67();
-        lesson71();
-//        lesson72();
+//        lesson71();
+        lesson72();
 //        lesson73();
 //        lesson74();
 //        lesson75();
@@ -317,12 +319,32 @@ public class Section6ControlFlow {
     }
 
     public static String getInputFromScanner (int currentYear) {
+        Scanner scanner = new Scanner(System.in);
 
-        return "";
+
+        System.out.println("Hi, What's your Name? ");
+        String name = scanner.nextLine();
+
+        System.out.println("Hi " + name + ", Thanks for taking the course!");
+
+        System.out.println("What year were you born? ");
+        String dateOfBirth = scanner.nextLine();
+
+        int age = currentYear - Integer.parseInt(dateOfBirth);
+
+        return "So you are " + age + " years old";
     }
 
     private static void lesson72() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 72: Exception Handling, and Introduction to Scanner\n");
+
+        int currentYear = 2022;
+
+        try {
+            System.out.println(getInputFromConsole(currentYear));
+        } catch (NullPointerException e) {
+            System.out.println(getInputFromScanner(currentYear));
+        }
 
         System.out.println();
     }
