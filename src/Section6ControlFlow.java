@@ -5,8 +5,8 @@ public class Section6ControlFlow {
         System.out.println("Section 6: Control Flow");
 
 //        lesson57();
-        lesson58();
-//        lesson59();
+//        lesson58();
+        lesson59();
 //        lesson60();
 //        lesson61();
 //        lesson62();
@@ -51,7 +51,7 @@ public class Section6ControlFlow {
     }
 
     private static void lesson58() {
-        System.out.println("Lesson 59: More switch statement\n");
+        System.out.println("Lesson 58: More switch statement\n");
 
         int switchValue = 3;
 
@@ -85,7 +85,17 @@ public class Section6ControlFlow {
     }
 
     private static void lesson59() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 59: Traditional Switch Challenge\n");
+
+        char charValue = 'A';
+        switch (charValue) {
+            case 'A' -> System.out.println("A is Alpha");
+            case 'B' -> System.out.println("B is Bravo");
+            case 'C' -> System.out.println("C is Charlie");
+            case 'D' -> System.out.println("D is Delta");
+            case 'E' -> System.out.println("E is Echo");
+            default -> System.out.println("bad char");
+        };
 
         System.out.println();
     }
