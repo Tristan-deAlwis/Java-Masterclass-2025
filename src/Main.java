@@ -7,6 +7,7 @@ public class Main {
 //        Section3FirstSteps.main();
 //        Section4IntelliJBasics.main();
 //        Section5ExpressionsStatementsMore.main();
-        Section6ControlFlow.main();
+//        Section6ControlFlow.main();
+        Section7OOPPart1Inheritance.main();
     }
 }
