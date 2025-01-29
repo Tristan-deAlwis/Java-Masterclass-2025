@@ -9,8 +9,8 @@ public class Section6ControlFlow {
 //        lesson59();
 //        lesson60();
 //        lesson61();
-        lesson62();
-//        lesson63();
+//        lesson62();
+        lesson63();
 //        lesson64();
 //        lesson65();
 //        lesson66();
@@ -187,7 +187,18 @@ public class Section6ControlFlow {
     }
 
     private static void lesson63() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 63: Sum 3 and 5 Challenge And Using IntelliJ's Debugger\n");
+
+        int sum = 0;
+        int counter = 0;
+        for (int i = 1; counter < 5 && i <= 1000; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                System.out.println(i);
+                sum += i;
+                counter++;
+            }
+        }
+        System.out.println(sum);
 
         System.out.println();
     }
