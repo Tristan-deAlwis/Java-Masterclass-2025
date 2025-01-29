@@ -18,8 +18,8 @@ public class Section6ControlFlow {
 //        lesson67();
 //        lesson71();
 //        lesson72();
-        lesson73();
-//        lesson74();
+//        lesson73();
+        lesson74();
 //        lesson75();
 
     }
@@ -382,7 +382,26 @@ public class Section6ControlFlow {
     }
 
     private static void lesson74() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 74: Reading User Input Challenge\n");
+
+        Scanner scanner = new Scanner(System.in);
+
+        int counter = 1;
+        double sum = 0;
+
+        do {
+            System.out.println("Each number #" + counter + ":");
+            String nextNumber = scanner.nextLine();
+            try {
+//                int number = Integer.parseInt(nextNumber);
+                double number = Double.parseDouble(nextNumber);
+                counter++;
+                sum += number;
+            } catch (NumberFormatException nfe) {
+                System.out.println("Invalid number");
+            }
+        } while (counter <= 5);
+        System.out.println("Sum is " + sum);
 
         System.out.println();
     }
