@@ -7,9 +7,9 @@ public class Section6ControlFlow {
 //        lesson57();
 //        lesson58();
 //        lesson59();
-        lesson60();
+//        lesson60();
 //        lesson61();
-//        lesson62();
+        lesson62();
 //        lesson63();
 //        lesson64();
 //        lesson65();
@@ -132,93 +132,135 @@ public class Section6ControlFlow {
         System.out.println(day + " stands for " + dayOfTheWeek);
     }
 
-private static void lesson61() {
-    System.out.println("Lesson xx: XX\n");
+    private static void lesson61() {
+        System.out.println("Lesson 61: The for Statement\n");
 
-    System.out.println();
-}
+        for (int counter = 1; counter <= 5; counter++) {
+            System.out.println(counter);
+        }
+        for (double rate = 2.0; rate <= 5.0; rate++) {
+            double interestAmount = calculateInterest(10_000.00, rate);
+            System.out.println("10,000 at " + rate + "% interest = " + interestAmount);
+        }
 
-private static void lesson62() {
-    System.out.println("Lesson xx: XX\n");
+        for (double rate = 7.5; rate <= 10; rate += 0.25) {
+            double interestAmount = calculateInterest(100.00, rate);
+            if (interestAmount > 8.5) {
+                break;
+            }
+            System.out.println("$100 at " + rate + "% interest = $" + interestAmount);
+        }
 
-    System.out.println();
-}
+        System.out.println();
+    }
 
-private static void lesson63() {
-    System.out.println("Lesson xx: XX\n");
+    public static double calculateInterest(double amount, double interestRate) {
+        return (amount * (interestRate / 100));
+    }
 
-    System.out.println();
-}
+    private static void lesson62() {
+        System.out.println("Lesson 62: The for Statement Challenge Exercise\n");
 
-private static void lesson64() {
-    System.out.println("Lesson xx: XX\n");
+        int counter = 0;
+        for (int i = 10; counter < 3 && i <= 50; i++) {
+            if (isPrime(i)) {
+                counter++;
+                System.out.println(i);
+            }
+        }
 
-    System.out.println();
-}
+        System.out.println();
+    }
 
-private static void lesson65() {
-    System.out.println("Lesson xx: XX\n");
+    public static boolean isPrime (int wholeNumber) {
+        if (wholeNumber <= 2) {
+            return (wholeNumber == 2);
+        }
 
-    System.out.println();
-}
+        for (int divisor = 2; divisor < wholeNumber / 2; divisor++) {
+            if (wholeNumber % divisor == 0) {
+                return false;
+            }
+        }
 
-private static void lesson66() {
-    System.out.println("Lesson xx: XX\n");
+        return true;
+    }
 
-    System.out.println();
-}
+    private static void lesson63() {
+        System.out.println("Lesson xx: XX\n");
 
-private static void lesson67() {
-    System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
 
-    System.out.println();
-}
+    private static void lesson64() {
+        System.out.println("Lesson xx: XX\n");
 
-private static void lesson68() {
-    System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
 
-    System.out.println();
-}
+    private static void lesson65() {
+        System.out.println("Lesson xx: XX\n");
 
-private static void lesson69() {
-    System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
 
-    System.out.println();
-}
+    private static void lesson66() {
+        System.out.println("Lesson xx: XX\n");
 
-private static void lesson70() {
-    System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
 
-    System.out.println();
-}
+    private static void lesson67() {
+        System.out.println("Lesson xx: XX\n");
 
-private static void lesson71() {
-    System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
 
-    System.out.println();
-}
+    private static void lesson68() {
+        System.out.println("Lesson xx: XX\n");
 
-private static void lesson72() {
-    System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
 
-    System.out.println();
-}
+    private static void lesson69() {
+        System.out.println("Lesson xx: XX\n");
 
-private static void lesson73() {
-    System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
 
-    System.out.println();
-}
+    private static void lesson70() {
+        System.out.println("Lesson xx: XX\n");
 
-private static void lesson74() {
-    System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
 
-    System.out.println();
-}
+    private static void lesson71() {
+        System.out.println("Lesson xx: XX\n");
 
-private static void lesson75() {
-    System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
 
-    System.out.println();
-}
+    private static void lesson72() {
+        System.out.println("Lesson xx: XX\n");
+
+        System.out.println();
+    }
+
+    private static void lesson73() {
+        System.out.println("Lesson xx: XX\n");
+
+        System.out.println();
+    }
+
+    private static void lesson74() {
+        System.out.println("Lesson xx: XX\n");
+
+        System.out.println();
+    }
+
+    private static void lesson75() {
+        System.out.println("Lesson xx: XX\n");
+
+        System.out.println();
+    }
 }
