@@ -1,7 +1,7 @@
 package src;
 
 public class Section6ControlFlow {
-    public static void main() {
+    public static void main(String[] args) {
         System.out.println("Section 6: Control Flow");
 
 //        lesson57();
@@ -14,7 +14,7 @@ public class Section6ControlFlow {
 //        lesson65();
 //        lesson66();
 //        lesson67();
-//        lesson71();
+        lesson71();
 //        lesson72();
 //        lesson73();
 //        lesson74();
@@ -286,9 +286,39 @@ public class Section6ControlFlow {
     }
 
     private static void lesson71() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 71: Parsing Values and Reading Input using System.console()\n");
+
+        int currentYear = 2022;
+        String usersDateOfBirth = "1999";
+
+        int dateOfBirth = Integer.parseInt(usersDateOfBirth);
+
+        System.out.println("Age = " + (currentYear - dateOfBirth));
+
+        String usersAgeWithPartialYear = "22.5";
+        double ageWithPartialYear = Double.parseDouble(usersAgeWithPartialYear);
+        System.out.println("The user says he is " + ageWithPartialYear);
+
+        System.out.println(getInputFromConsole(currentYear));
+
+        System.out.println(getInputFromScanner(currentYear));
 
         System.out.println();
+    }
+
+    public static String getInputFromConsole (int currentYear) {
+        String name = System.console().readLine("Hi, What's your Name? ");
+        System.out.println("Hi " + name + ", Thanks for taking the course!");
+
+        String dateOfBirth = System.console().readLine("What year were you born? ");
+        int age = currentYear - Integer.parseInt(dateOfBirth);
+
+        return "So you are " + age + " years old";
+    }
+
+    public static String getInputFromScanner (int currentYear) {
+
+        return "";
     }
 
     private static void lesson72() {
