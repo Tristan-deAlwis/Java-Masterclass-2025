@@ -12,8 +12,8 @@ public class Section6ControlFlow {
 //        lesson62();
 //        lesson63();
 //        lesson65();
-        lesson66();
-//        lesson67();
+//        lesson66();
+        lesson67();
 //        lesson68();
 //        lesson69();
 //        lesson70();
@@ -264,9 +264,28 @@ public class Section6ControlFlow {
     }
 
     private static void lesson67() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 67: Digit Sum Challenge\n");
+
+        System.out.println(sumDigits(1234));
+        System.out.println(sumDigits(-125));
+        System.out.println(sumDigits(4));
+        System.out.println(sumDigits(32123));
 
         System.out.println();
+    }
+
+    public static int sumDigits (int number) {
+        if (number < 0) {
+            return -1;
+        } else {
+            int sum = 0;
+            while (number > 9) {
+                sum += (number % 10);
+                number = number / 10;
+            }
+            sum += number;
+            return sum;
+        }
     }
 
     private static void lesson68() {
