@@ -4,8 +4,8 @@ public class Section7OOPPart1Inheritance {
     public static void main() {
         System.out.println("Section 6: Control Flow");
 
-        lesson77();
-//        lesson78();
+//        lesson77();
+        lesson78();
 //        lesson79();
 //        lesson80();
 //        lesson81();
@@ -31,13 +31,53 @@ public class Section7OOPPart1Inheritance {
         System.out.println();
     }
 
-    public class Car {
+    public static class Car {
 
-        private String make;
-        private String model;
-        private String color;
-        private int doors;
-        private boolean convertible;
+        private String make = "Tesla";
+        private String model = "Model X";
+        private String color = "Gray";
+        private int doors = 2;
+        private boolean convertible = true;
+
+        public String getMake() {
+            return make;
+        }
+
+        public String getModel() {
+            return model;
+        }
+
+        public String getColor() {
+            return color;
+        }
+
+        public int getDoors() {
+            return doors;
+        }
+
+        public boolean isConvertible() {
+            return convertible;
+        }
+
+        public void setMake(String make) {
+            this.make = make;
+        }
+
+        public void setModel(String model) {
+            this.model = model;
+        }
+
+        public void setColor(String color) {
+            this.color = color;
+        }
+
+        public void setDoors(int doors) {
+            this.doors = doors;
+        }
+
+        public void setConvertible(boolean convertible) {
+            this.convertible = convertible;
+        }
 
         public void describeCar() {
             System.out.println(doors + "-Door " +
@@ -51,7 +91,15 @@ public class Section7OOPPart1Inheritance {
     }
 
     private static void lesson78() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 78: Introduction to Classes, Using Getter Methods\n");
+
+        Car car = new Car();
+//        car.make() = "Porsche";
+//        car.model() = "Carrera";
+//        car.color() = "Red";
+        System.out.println("make =" + car.getMake());
+        System.out.println("model =" + car.getModel());
+        car.describeCar();
 
         System.out.println();
     }
