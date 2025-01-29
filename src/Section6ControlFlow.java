@@ -19,8 +19,8 @@ public class Section6ControlFlow {
 //        lesson71();
 //        lesson72();
 //        lesson73();
-        lesson74();
-//        lesson75();
+//        lesson74();
+        lesson75();
 
     }
 
@@ -407,7 +407,34 @@ public class Section6ControlFlow {
     }
 
     private static void lesson75() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 75: Min and Max Challenge\n");
+
+        Scanner scanner = new Scanner(System.in);
+
+        int min = 0;
+        int max = 1;
+        int counter = 0;
+
+        while (true) {
+            System.out.println("Enter a number:");
+            String nextNumber = scanner.nextLine();
+
+            try {
+                int number = Integer.parseInt(nextNumber);
+                if (counter == 0 || number < min) {
+                    min = number;
+                } if (counter == 0 || number > max) {
+                    max = number;
+                }
+                counter++;
+            } catch (NumberFormatException nfe) {
+                System.out.println("Invalid number");
+                break;
+            }
+        }
+
+        System.out.println("Min is " + min);
+        System.out.println("Max is " + max);
 
         System.out.println();
     }
