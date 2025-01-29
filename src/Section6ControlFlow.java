@@ -287,12 +287,6 @@ public class Section6ControlFlow {
         }
     }
 
-    private static void lesson69() {
-        System.out.println("Lesson xx: XX\n");
-
-        System.out.println();
-    }
-
     private static void lesson70() {
         System.out.println("Lesson xx: XX\n");
 
