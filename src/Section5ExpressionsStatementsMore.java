@@ -1,7 +1,7 @@
 package src;
 
 public class Section5ExpressionsStatementsMore {
-    public static void main(String[] args) {
+    public static void main() {
         System.out.println("Section 5: Expressions, Statements & More");
 
         lesson42();

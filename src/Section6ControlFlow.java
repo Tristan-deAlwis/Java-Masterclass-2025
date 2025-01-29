@@ -3,7 +3,7 @@ package src;
 import java.util.Scanner;
 
 public class Section6ControlFlow {
-    public static void main(String[] args) {
+    public static void main() {
         System.out.println("Section 6: Control Flow");
 
 //        lesson57();
@@ -17,8 +17,8 @@ public class Section6ControlFlow {
 //        lesson66();
 //        lesson67();
 //        lesson71();
-        lesson72();
-//        lesson73();
+//        lesson72();
+        lesson73();
 //        lesson74();
 //        lesson75();
 
@@ -328,9 +328,20 @@ public class Section6ControlFlow {
         System.out.println("Hi " + name + ", Thanks for taking the course!");
 
         System.out.println("What year were you born? ");
-        String dateOfBirth = scanner.nextLine();
 
-        int age = currentYear - Integer.parseInt(dateOfBirth);
+        boolean validDOB = false;
+        int age = 0;
+
+        do {
+            System.out.println("Enter a year of birth >= " +
+                    (currentYear - 125) + " and <= " + (currentYear));
+            try {
+                age = checkData(currentYear, scanner.nextLine());
+                validDOB = age < 0 ? false : true;
+            } catch (NumberFormatException badUserData) {
+                System.out.println("Characters not allowed!!! Try again.");
+            }
+        } while (!validDOB);
 
         return "So you are " + age + " years old";
     }
@@ -350,9 +361,24 @@ public class Section6ControlFlow {
     }
 
     private static void lesson73() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 73: Reading Input with Scanner\n");
+
+        int currentYear = 2022;
+
+        System.out.println(getInputFromScanner(currentYear));
 
         System.out.println();
+    }
+
+    public static int checkData (int currentYear, String dateOfBirth) {
+        int dob = Integer.parseInt(dateOfBirth);
+        int minumumYear = currentYear - 125;
+
+        if((dob < minumumYear) || (dob > currentYear)) {
+            return -1;
+        }
+
+        return (currentYear - dob);
     }
 
     private static void lesson74() {
