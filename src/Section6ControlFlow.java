@@ -10,8 +10,7 @@ public class Section6ControlFlow {
 //        lesson60();
 //        lesson61();
 //        lesson62();
-        lesson63();
-//        lesson64();
+//        lesson63();
 //        lesson65();
 //        lesson66();
 //        lesson67();
@@ -199,12 +198,6 @@ public class Section6ControlFlow {
             }
         }
         System.out.println(sum);
-
-        System.out.println();
-    }
-
-    private static void lesson64() {
-        System.out.println("Lesson xx: XX\n");
 
         System.out.println();
     }
