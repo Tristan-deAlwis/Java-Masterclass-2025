@@ -10,8 +10,8 @@ public class Section7OOPPart1Inheritance {
 //        lesson80();
 //        lesson89();
 //        lesson90();
-        lesson91();
-//        lesson92();
+//        lesson91();
+        lesson92();
 //        lesson100();
     }
 
@@ -399,9 +399,48 @@ public class Section7OOPPart1Inheritance {
     }
 
     private static void lesson92() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 92: What is java.lang.Object?\n");
+
+        Student max = new Student("Max", 21);
+        System.out.println(max);
+
+        PrimarySchoolStudent jimmy = new PrimarySchoolStudent("Jimmy", 8, "Carole");
+        System.out.println(jimmy);
 
         System.out.println();
+    }
+
+    public static class Main extends Object {
+
+    }
+
+    static class Student {
+        private String name;
+        private int age;
+
+        Student(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        @Override
+        public String toString() {
+            return name + " is " + age;
+        }
+    }
+
+    static class PrimarySchoolStudent extends Student {
+        private String parentName;
+
+        PrimarySchoolStudent(String name, int age, String parentName) {
+            super(name, age);
+            this.parentName = parentName;
+        }
+
+        @Override
+        public String toString() {
+            return parentName + "'s kid, " + super.toString();
+        }
     }
 
     private static void lesson100() {
