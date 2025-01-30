@@ -12,8 +12,8 @@ public class Section7OOPPart1Inheritance {
 //        lesson90();
 //        lesson91();
 //        lesson92();
-        lesson93();
-//        lesson94();
+//        lesson93();
+        lesson94();
 //        lesson95();
 //        lesson96();
 //        lesson97();
@@ -516,8 +516,48 @@ public class Section7OOPPart1Inheritance {
     }
 
     private static void lesson94() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 94: Inheritance Challenge Part 2\n");
+
+        SalariedEmployee joe = new SalariedEmployee("Joe", "1976", "2025", 50_000);
+        System.out.println(joe);
+        System.out.println("Joe's Paycheck = $" + joe.collectPay());
+
+        joe.retire();
+        System.out.println("Joe's pension check = $" + joe.collectPay());
+
         System.out.println();
+    }
+
+    static class SalariedEmployee extends Employee {
+        private double annualSalary;
+        private boolean isRetired;
+
+        public SalariedEmployee(String name, String birthDate, String hireDate, double annualSalary) {
+            super(name, birthDate, hireDate);
+            this.annualSalary = annualSalary;
+            this.isRetired = isRetired;
+        }
+
+        @Override
+        public double collectPay() {
+            double paycheck = annualSalary / 26;
+            double adjustedPay = (isRetired) ? 0.9*paycheck : paycheck;
+
+            return (int) adjustedPay;
+        }
+
+        public void retire() {
+            terminate("2025");
+            isRetired = true;
+        }
+
+        @Override
+        public String toString() {
+            return "SalariedEmployee{" +
+                    "annualSalary=" + annualSalary +
+                    ", isRetired=" + isRetired +
+                    "} " + super.toString();
+        }
     }
 
     private static void lesson95() {
