@@ -8,6 +8,7 @@ public class Section7OOPPart1Inheritance {
 //        lesson78();
 //        lesson79();
 //        lesson80();
+//        lesson89();
         lesson90();
 //        lesson91();
 //        lesson92();
@@ -223,7 +224,6 @@ public class Section7OOPPart1Inheritance {
     }
 
     public static void doAnimalStuff(Animal animal, String speed) {
-
         animal.makeNoise();
         animal.move(speed);
         System.out.println(animal);
@@ -232,8 +232,7 @@ public class Section7OOPPart1Inheritance {
         System.out.println();
     }
 
-    public class Animal {
-
+    public static class Animal {
         private String type;
         private String size;
         private double weight;
@@ -266,15 +265,50 @@ public class Section7OOPPart1Inheritance {
         }
     }
 
-    public class Dog extends Animal {
+    public static class Dog extends Animal {
+        private String earShape;
+        private String tailShape;
 
         public Dog() {
             super("Mutt", "Big", 50);
         }
+
+        public Dog (String type, double weight) {
+            this(type, weight, "Perky", "Curled");
+        }
+
+        public Dog(String type, double weight, String earShape, String tailShape) {
+            super(type, weight < 15 ? "small" : (weight < 35 ? "medium" : "large"), weight);
+            this.earShape = earShape;
+            this.tailShape = tailShape;
+        }
+
+        @Override
+        public String toString() {
+            return "Dog{" +
+                    "earShape='" + earShape + '\'' +
+                    ", tailShape='" + tailShape + '\'' +
+                    "} " + super.toString();
+        }
+
+        public void makeNoise() {}
+
+        @Override
+        public void move(String speed) {
+            super.move(speed);
+            System.out.println("Dogs walk, run, and wag their tail");
+        }
     }
 
     private static void lesson90() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 90: Inheritance - Part 2\n");
+
+        Dog yorkie = new Dog("Yorkie", 15);
+        doAnimalStuff(yorkie, "fast");
+
+        Dog retriever = new Dog ("Labrador Retriever", 65, "Floppy", "Swimmer");
+        doAnimalStuff(retriever, "slow");
+
 
         System.out.println();
     }
