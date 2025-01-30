@@ -7,17 +7,8 @@ public class Section7OOPPart1Inheritance {
 //        lesson77();
 //        lesson78();
 //        lesson79();
-        lesson80();
-//        lesson81();
-//        lesson82();
-//        lesson83();
-//        lesson84();
-//        lesson85();
-//        lesson86();
-//        lesson87();
-//        lesson88();
-//        lesson89();
-//        lesson90();
+//        lesson80();
+        lesson90();
 //        lesson91();
 //        lesson92();
 //        lesson100();
@@ -221,58 +212,65 @@ public class Section7OOPPart1Inheritance {
         }
     }
 
-    private static void lesson81() {
-        System.out.println("Lesson xx: XX\n");
-
-        System.out.println();
-    }
-
-    private static void lesson82() {
-        System.out.println("Lesson xx: XX\n");
-
-        System.out.println();
-    }
-
-    private static void lesson83() {
-        System.out.println("Lesson xx: XX\n");
-
-        System.out.println();
-    }
-
-    private static void lesson84() {
-        System.out.println("Lesson xx: XX\n");
-
-        System.out.println();
-    }
-
-    private static void lesson85() {
-        System.out.println("Lesson xx: XX\n");
-
-        System.out.println();
-    }
-
-    private static void lesson86() {
-        System.out.println("Lesson xx: XX\n");
-
-        System.out.println();
-    }
-
-    private static void lesson87() {
-        System.out.println("Lesson xx: XX\n");
-
-        System.out.println();
-    }
-
-    private static void lesson88() {
-        System.out.println("Lesson xx: XX\n");
-
-        System.out.println();
-    }
-
     private static void lesson89() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 89: Inheritance - Part 1\n");
+
+        Animal animal = new Animal("Generic Animal", "Huge", 400);
+        doAnimalStuff(animal, "slow");
+
+        Dog dog = new Dog();
+        doAnimalStuff(dog, "fast");
+    }
+
+    public static void doAnimalStuff(Animal animal, String speed) {
+
+        animal.makeNoise();
+        animal.move(speed);
+        System.out.println(animal);
+        System.out.println("_ _ _ _");
 
         System.out.println();
+    }
+
+    public class Animal {
+
+        private String type;
+        private String size;
+        private double weight;
+
+        public Animal() {
+
+        }
+
+        public Animal(String type, String size, double weight) {
+            this.type = type;
+            this.size = size;
+            this.weight = weight;
+        }
+
+        @Override
+        public String toString() {
+            return "Animal{" +
+                    "type='" + type + '\'' +
+                    ", size='" + size + '\'' +
+                    ", weight=" + weight +
+                    '}';
+        }
+
+        public void move(String speed) {
+            System.out.println(type + " moves " + speed);
+        }
+
+        public void makeNoise() {
+            System.out.println(type + " makes some kind of noise");
+        }
+    }
+
+    public class Dog extends Animal {
+
+        public Dog() {
+            super("Mutt", "Big", 50);
+        }
     }
 
     private static void lesson90() {
