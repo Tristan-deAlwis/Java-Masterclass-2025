@@ -11,7 +11,14 @@ public class Section7OOPPart1Inheritance {
 //        lesson89();
 //        lesson90();
 //        lesson91();
-        lesson92();
+//        lesson92();
+        lesson93();
+        lesson94();
+        lesson95();
+        lesson96();
+        lesson97();
+        lesson98();
+        lesson99();
 //        lesson100();
     }
 
@@ -443,9 +450,43 @@ public class Section7OOPPart1Inheritance {
         }
     }
 
+    private static void lesson93() {
+        System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
+
+    private static void lesson94() {
+        System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
+
+    private static void lesson95() {
+        System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
+
+    private static void lesson96() {
+        System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
+
+    private static void lesson97() {
+        System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
+
+    private static void lesson98() {
+        System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
+
+    private static void lesson99() {
+        System.out.println("Lesson xx: XX\n");
+        System.out.println();
+    }
+
     private static void lesson100() {
         System.out.println("Lesson xx: XX\n");
-
         System.out.println();
     }
 }
