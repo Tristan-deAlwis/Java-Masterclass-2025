@@ -9,8 +9,8 @@ public class Section7OOPPart1Inheritance {
 //        lesson79();
 //        lesson80();
 //        lesson89();
-        lesson90();
-//        lesson91();
+//        lesson90();
+        lesson91();
 //        lesson92();
 //        lesson100();
     }
@@ -233,7 +233,7 @@ public class Section7OOPPart1Inheritance {
     }
 
     public static class Animal {
-        private String type;
+        protected String type;
         private String size;
         private double weight;
 
@@ -291,12 +291,42 @@ public class Section7OOPPart1Inheritance {
                     "} " + super.toString();
         }
 
-        public void makeNoise() {}
+        public void makeNoise() {
+            if (type == "Wolf" ) {
+                System.out.println("Howl");
+            }
+            bark();
+            System.out.println();
+        }
 
         @Override
         public void move(String speed) {
             super.move(speed);
-            System.out.println("Dogs walk, run, and wag their tail");
+//            System.out.println("Dogs walk, run, and wag their tail");
+            if (speed == "slow") {
+                walk();
+                wagTail();
+            } else {
+                run();
+                bark();
+            }
+            System.out.println();
+        }
+
+        private void bark() {
+            System.out.print("woof! ");
+        }
+
+        private void run() {
+            System.out.print("Dog running ");
+        }
+
+        private void walk() {
+            System.out.print("Dog walking ");
+        }
+
+        private void wagTail() {
+            System.out.print("Tail wagging ");
         }
     }
 
@@ -314,9 +344,58 @@ public class Section7OOPPart1Inheritance {
     }
 
     private static void lesson91() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 91: Inheritance - Part 3\n");
+
+        Dog yorkie = new Dog("Yorkie", 15);
+        doAnimalStuff(yorkie, "fast");
+
+        Dog retriever = new Dog ("Labrador Retriever", 65, "Floppy", "Swimmer");
+        doAnimalStuff(retriever, "slow");
+
+        Dog wolf = new Dog ("Wolf", 40);
+        doAnimalStuff(wolf, "slow");
+
+        Fish goldie = new Fish("Goldfish", 0.25, 2, 3);
+        doAnimalStuff(goldie, "fast");
 
         System.out.println();
+    }
+
+    public static class Fish extends Animal {
+        private int gills;
+        private int fins;
+
+        public Fish(String type, double weight, int gills, int fins) {
+            super(type, "small", weight);
+            this.gills = gills;
+            this.fins = fins;
+        }
+
+        private void moveMuscles() {
+            System.out.println("muscles moving");
+        }
+
+        public void moveBackFin() {
+            System.out.println("backfin moving");
+        }
+
+        @Override
+        public void move(String speed) {
+            super.move(speed);
+            moveMuscles();
+            if (speed == "fast") {
+                moveBackFin();
+            }
+            System.out.println();
+        }
+
+        @Override
+        public String toString() {
+            return "Fish{" +
+                    "gills=" + gills +
+                    ", fins=" + fins +
+                    "} " + super.toString();
+        }
     }
 
     private static void lesson92() {
