@@ -14,7 +14,6 @@ public class Section7OOPPart1Inheritance {
 //        lesson92();
 //        lesson93();
 //        lesson94();
-//        lesson96();
 //        lesson97();
 //        lesson98();
 //        lesson99();
@@ -557,11 +556,6 @@ public class Section7OOPPart1Inheritance {
                     ", isRetired=" + isRetired +
                     "} " + super.toString();
         }
-    }
-
-    private static void lesson96() {
-        System.out.println("Lesson xx: XX\n");
-        System.out.println();
     }
 
     private static void lesson97() {
