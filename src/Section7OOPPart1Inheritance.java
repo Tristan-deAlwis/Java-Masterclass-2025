@@ -13,12 +13,12 @@ public class Section7OOPPart1Inheritance {
 //        lesson91();
 //        lesson92();
         lesson93();
-        lesson94();
-        lesson95();
-        lesson96();
-        lesson97();
-        lesson98();
-        lesson99();
+//        lesson94();
+//        lesson95();
+//        lesson96();
+//        lesson97();
+//        lesson98();
+//        lesson99();
 //        lesson100();
     }
 
@@ -451,8 +451,68 @@ public class Section7OOPPart1Inheritance {
     }
 
     private static void lesson93() {
-        System.out.println("Lesson xx: XX\n");
-        System.out.println();
+        System.out.println("Lesson 93: Inheritance Challenge - Part 1\n");
+
+        Employee amy = new Employee("Amy", "1976", "2025");
+        System.out.println(amy);
+    }
+
+    static class Worker {
+        private String name;
+        private String birthDate;
+        protected String endDate;
+
+        public Worker() {}
+
+        public Worker(String name, String birthDate) {
+            this.name = name;
+            this.birthDate = birthDate;
+        }
+
+        public int getAge() {
+            int age = 2025 - Integer.parseInt(birthDate);
+            return age;
+        }
+
+        public double collectPay() {
+            return 0.0;
+        }
+
+        public void terminate (String endDate) {
+            this.endDate = endDate;
+        }
+
+        @Override
+        public String toString() {
+            return "Worker{" +
+                    "name='" + name + '\'' +
+                    ", birthDate='" + birthDate + '\'' +
+                    ", endDate='" + endDate + '\'' +
+                    '}';
+        }
+    }
+
+    static class Employee extends Worker {
+        protected long employeeID;
+        protected String hireDate;
+
+        private static int employeeNo = 1;
+
+        public Employee() {}
+
+        public Employee(String name, String birthDate, String hireDate) {
+            super(name, birthDate);
+            this.employeeID = Employee.employeeNo++;
+            this.hireDate = hireDate;
+        }
+
+        @Override
+        public String toString() {
+            return "Employee{" +
+                    "employeeID=" + employeeID +
+                    ", hireDate='" + hireDate + '\'' +
+                    "} " + super.toString();
+        }
     }
 
     private static void lesson94() {
