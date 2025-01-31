@@ -4,7 +4,6 @@ public class Section8OOPPart2Polymorphism {
     public static void main(String[] args) {
         System.out.println("Section 7: OOP Part 1 - Inheritance");
 
-        lesson101();
         lesson102();
         lesson103();
         lesson104();
