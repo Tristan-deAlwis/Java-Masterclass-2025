@@ -2,22 +2,22 @@ package src;
 
 public class Section7OOPPart1Inheritance {
     public static void main() {
-        System.out.println("Section 6: Control Flow");
+        System.out.println("Section 7: OOP Part 1 - Inheritance");
 
-//        lesson77();
-//        lesson78();
-//        lesson79();
-//        lesson80();
-//        lesson89();
-//        lesson90();
-//        lesson91();
-//        lesson92();
-//        lesson93();
-//        lesson94();
-//        lesson97();
-//        lesson98();
+        lesson77();
+        lesson78();
+        lesson79();
+        lesson80();
+        lesson89();
+        lesson90();
+        lesson91();
+        lesson92();
+        lesson93();
+        lesson94();
+        lesson97();
+        lesson98();
         lesson99();
-//        lesson100();
+        lesson100();
     }
 
     private static void lesson77() {
@@ -453,6 +453,8 @@ public class Section7OOPPart1Inheritance {
 
         Employee amy = new Employee("Amy", "1976", "2025");
         System.out.println(amy);
+
+        System.out.println();
     }
 
     static class Worker {
@@ -700,7 +702,61 @@ public class Section7OOPPart1Inheritance {
     }
 
     private static void lesson100() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 100: The StringBuilder class\n");
+
+        StringBuilder helloBuilder = new StringBuilder("Hello");
+        System.out.println(helloBuilder);
+
+        StringBuilder emptyBuilder = new StringBuilder();
+        System.out.println(emptyBuilder);
+
+        StringBuilder emptyBuilder5 = new StringBuilder(5);
+        System.out.println(emptyBuilder5);
+
+        StringBuilder stringBuilder = new StringBuilder(helloBuilder);
+        System.out.println(stringBuilder);
+
+        String helloWorld = "Hello" + " World";
+        helloWorld.concat(" and Goodbye");
+
+        StringBuilder helloWorldBuilder = new StringBuilder( "Hello" + " World");
+        helloWorldBuilder.append(" and Goodbye");
+
+        printInformation2(helloWorld);
+        printInformation(helloWorldBuilder);
+
+        StringBuilder emptyStart = new StringBuilder();
+        emptyStart.append("a".repeat(57));
+
+        StringBuilder emptyStart32 = new StringBuilder(32);
+        emptyStart32.append("a".repeat(17));
+
+        printInformation(emptyStart);
+        printInformation(emptyStart32);
+
+        StringBuilder builderPlus = new StringBuilder( "Hello" + " World");
+        builderPlus.append(" and Goodbye");
+
+        builderPlus.deleteCharAt(16).insert(16, 'g');
+        System.out.println(builderPlus);
+
+        builderPlus.replace(16, 17, "G");
+        System.out.println(builderPlus);
+
+        builderPlus.reverse().setLength(7);
+        System.out.println(builderPlus);
+
         System.out.println();
+    }
+
+    public static void printInformation2(String string) {
+        System.out.println("String = " + string);
+        System.out.println("length = " + string.length());
+    }
+
+    public static void printInformation(StringBuilder builder) {
+        System.out.println("StringBuilder = " + builder);
+        System.out.println("length = " + builder.length());
+        System.out.println("capacity = " + builder.capacity());
     }
 }
