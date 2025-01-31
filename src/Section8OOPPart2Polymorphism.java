@@ -2,10 +2,10 @@ package src;
 
 public class Section8OOPPart2Polymorphism {
     public static void main() {
-        System.out.println("Section 7: OOP Part 1 - Inheritance");
+        System.out.println("Section 8: OOP Part 2 - Polymorphism");
 
-        lesson103();
-//        lesson104();
+//        lesson103();
+        lesson104();
 //        lesson105();
 //        lesson106();
 //        lesson107();
@@ -94,7 +94,7 @@ public class Section8OOPPart2Polymorphism {
         }
     }
 
-    public static class PersonalComputer extends Product {
+    static class PersonalComputer extends Product {
         private ComputerCase computerCase;
         private Monitor monitor;
         private Motherboard motherboard;
@@ -145,8 +145,103 @@ public class Section8OOPPart2Polymorphism {
     }
 
     private static void lesson104() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 104: Composition Challenge\n");
+
+        SmartKitchen kitchen = new SmartKitchen();
+
+//        kitchen.getDishWasher().setHasWorkToDo(true);
+//        kitchen.getIceBox().setHasWorkToDo(true);
+//        kitchen.getBrewMaster().setHasWorkToDo(true);
+//
+//        kitchen.getDishWasher().doDishes();
+//        kitchen.getIceBox().orderFood();
+//        kitchen.getBrewMaster().brewCoffee();
+
+        kitchen.setKitchenState(true, false, true);
+        kitchen.doKitchenWork();
+
         System.out.println();
+    }
+
+    public static class SmartKitchen {
+        private Refrigerator iceBox;
+        private DishWasher dishWasher;
+        private CoffeeMaker brewMaster;
+
+        public SmartKitchen() {
+            iceBox = new Refrigerator();
+            dishWasher = new DishWasher();
+            brewMaster = new CoffeeMaker();
+        }
+
+        public Refrigerator getIceBox() {
+            return iceBox;
+        }
+
+        public DishWasher getDishWasher() {
+            return dishWasher;
+        }
+
+        public CoffeeMaker getBrewMaster() {
+            return brewMaster;
+        }
+
+        public void setKitchenState(boolean fridgeFlag, boolean dishWasherFlag, boolean coffeeFlag) {
+            iceBox.setHasWorkToDo(fridgeFlag);
+            dishWasher.setHasWorkToDo(dishWasherFlag);
+            brewMaster.setHasWorkToDo(coffeeFlag);
+        }
+
+        public void doKitchenWork() {
+            iceBox.orderFood();
+            dishWasher.doDishes();
+            brewMaster.brewCoffee();
+        }
+    }
+
+    static class Refrigerator {
+        private boolean hasWorkToDo;
+
+        public void setHasWorkToDo(boolean hasWorkToDo) {
+            this.hasWorkToDo = hasWorkToDo;
+        }
+
+        public void orderFood() {
+            if (hasWorkToDo) {
+                System.out.println("Ordering Food");
+                hasWorkToDo = false;
+            }
+        }
+    }
+
+    static class DishWasher {
+        private boolean hasWorkToDo;
+
+        public void setHasWorkToDo(boolean hasWorkToDo) {
+            this.hasWorkToDo = hasWorkToDo;
+        }
+
+        public void doDishes() {
+            if (hasWorkToDo) {
+                System.out.println("Washing Dishes");
+                hasWorkToDo = false;
+            }
+        }
+    }
+
+    static class CoffeeMaker {
+        private boolean hasWorkToDo;
+
+        public void setHasWorkToDo(boolean hasWorkToDo) {
+            this.hasWorkToDo = hasWorkToDo;
+        }
+
+        public void brewCoffee() {
+            if (hasWorkToDo) {
+                System.out.println("Brewing Coffee");
+                hasWorkToDo = false;
+            }
+        }
     }
 
     private static void lesson105() {
