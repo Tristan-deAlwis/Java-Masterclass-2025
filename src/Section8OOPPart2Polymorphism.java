@@ -23,11 +23,6 @@ public class Section8OOPPart2Polymorphism {
         lesson117();
     }
 
-    private static void lesson101() {
-        System.out.println("Lesson xxx: XXX\n");
-        System.out.println();
-    }
-
     private static void lesson102() {
         System.out.println("Lesson xxx: XXX\n");
         System.out.println();
