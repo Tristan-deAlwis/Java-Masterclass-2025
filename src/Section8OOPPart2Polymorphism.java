@@ -1,28 +1,28 @@
 package src;
 
 public class Section8OOPPart2Polymorphism {
-    public static void main(String[] args) {
+    public static void main() {
         System.out.println("Section 7: OOP Part 1 - Inheritance");
 
         lesson103();
-        lesson104();
-        lesson105();
-        lesson106();
-        lesson107();
-        lesson108();
-        lesson109();
-        lesson110();
-        lesson111();
-        lesson112();
-        lesson113();
-        lesson114();
-        lesson115();
-        lesson116();
-        lesson117();
+//        lesson104();
+//        lesson105();
+//        lesson106();
+//        lesson107();
+//        lesson108();
+//        lesson109();
+//        lesson110();
+//        lesson111();
+//        lesson112();
+//        lesson113();
+//        lesson114();
+//        lesson115();
+//        lesson116();
+//        lesson117();
     }
 
 
-    public class Product {
+    public static class Product {
         private String model;
         private String manufacturer;
         private int width;
@@ -35,7 +35,7 @@ public class Section8OOPPart2Polymorphism {
         }
     }
 
-    class Monitor extends Product {
+    static class Monitor extends Product {
         private int size;
         private String resolution;
 
@@ -49,14 +49,14 @@ public class Section8OOPPart2Polymorphism {
             this.resolution = resolution;
         }
 
-        public void draaPixelAt(int x, int y, String color) {
+        public void drawPixelAt(int x, int y, String color) {
             System.out.println(String.format(
                     "Drawing pixel at %d,%d in color %s ", x, y, color
             ));
         }
     }
 
-    class Motherboard extends Product {
+    static class Motherboard extends Product {
         private int ramSlots;
         private int cardSlots;
         private String bios;
@@ -77,7 +77,7 @@ public class Section8OOPPart2Polymorphism {
         }
     }
 
-    class ComputerCase extends Product {
+    static class ComputerCase extends Product {
         private String powerSupply;
 
         public ComputerCase(String model, String manufacturer) {
@@ -94,7 +94,7 @@ public class Section8OOPPart2Polymorphism {
         }
     }
 
-    public class PersonalComputer extends Product {
+    public static class PersonalComputer extends Product {
         private ComputerCase computerCase;
         private Monitor monitor;
         private Motherboard motherboard;
@@ -106,21 +106,41 @@ public class Section8OOPPart2Polymorphism {
             this.motherboard = motherboard;
         }
 
-        public ComputerCase getComputerCase() {
-            return computerCase;
+        private void drawLogo() {
+            monitor.drawPixelAt(1200, 50, "yellow");
         }
 
-        public Monitor getMonitor() {
-            return monitor;
+        public void powerUp() {
+            computerCase.pressPowerButton();
+            drawLogo();
         }
 
-        public Motherboard getMotherboard() {
-            return motherboard;
-        }
+//        public ComputerCase getComputerCase() {
+//            return computerCase;
+//        }
+//
+//        public Monitor getMonitor() {
+//            return monitor;
+//        }
+//
+//        public Motherboard getMotherboard() {
+//            return motherboard;
+//        }
     }
 
     private static void lesson103() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 103: Composition Part 2\n");
+
+        ComputerCase theCase = new ComputerCase("2208", "Dell", "240");
+        Monitor theMonitor = new Monitor("27inch Beast", "Acer", 27, "2540x1440");
+        Motherboard theMotherboard = new Motherboard("BJ-200", "Asus", 4, 6, "v2.44");
+        PersonalComputer thePC = new PersonalComputer("2208", "Dell", theCase, theMonitor, theMotherboard);
+
+//        thePC.getMonitor().draaPixelAt(10, 10, "red");
+//        thePC.getMotherboard().loadPrograms("Windows OS");
+//        thePC.getComputerCase().pressPowerButton();
+
+        thePC.powerUp();
         System.out.println();
     }
 

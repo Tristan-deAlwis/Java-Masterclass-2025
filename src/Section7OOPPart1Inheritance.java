@@ -4,7 +4,6 @@ public class Section7OOPPart1Inheritance {
     public static void main() {
         System.out.println("Section 7: OOP Part 1 - Inheritance");
 
-        lesson77();
         lesson78();
         lesson79();
         lesson80();

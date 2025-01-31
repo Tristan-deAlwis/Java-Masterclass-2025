@@ -8,6 +8,7 @@ public class Main {
 //        Section4IntelliJBasics.main();
 //        Section5ExpressionsStatementsMore.main();
 //        Section6ControlFlow.main();
-        Section7OOPPart1Inheritance.main();
+//        Section7OOPPart1Inheritance.main();
+        Section8OOPPart2Polymorphism.main();
     }
 }
