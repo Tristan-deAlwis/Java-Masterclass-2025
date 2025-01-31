@@ -20,14 +20,6 @@ public class Section7OOPPart1Inheritance {
         lesson100();
     }
 
-    private static void lesson77() {
-        System.out.println("Lesson 77: Introduction to Classes and Objects\n");
-
-
-
-        System.out.println();
-    }
-
     public static class Car {
 
         private String make = "Tesla";
