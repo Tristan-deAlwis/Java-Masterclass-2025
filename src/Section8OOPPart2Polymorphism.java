@@ -5,8 +5,8 @@ public class Section8OOPPart2Polymorphism {
         System.out.println("Section 8: OOP Part 2 - Polymorphism");
 
 //        lesson103();
-        lesson104();
-//        lesson105();
+//        lesson104();
+        lesson105();
 //        lesson106();
 //        lesson107();
 //        lesson108();
@@ -245,8 +245,49 @@ public class Section8OOPPart2Polymorphism {
     }
 
     private static void lesson105() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 105: Encapsulation, Part 1\n");
+
+        Player player = new Player();
+        player.fullName = "Trim";
+        player.health = 20;
+        player.weapon = "Sword";
+
+        int damage = 10;
+        player.loseHealth(damage);
+        System.out.println("Remaining health = " + player.healthRemaining());
+
+//        player.health = 200;
+        player.loseHealth(11);
+        System.out.println("Remaining health = " + player.healthRemaining());
         System.out.println();
+    }
+
+    public static class Player {
+        public String fullName;
+        public int health;
+        public String weapon;
+
+        public void loseHealth(int damage) {
+            if (health <= damage) {
+                System.out.println("Player knocked out of the game");
+                health -= damage;
+            } else {
+                health -= damage;
+            }
+        }
+
+        public int healthRemaining() {
+            return health;
+        }
+
+        public void restoreHealth(int extraHealth) {
+
+            health += extraHealth;
+            if (health > 100) {
+                System.out.println("Player restored to 100%");
+                health = 100;
+            }
+        }
     }
 
     private static void lesson106() {
