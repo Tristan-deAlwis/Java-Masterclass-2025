@@ -6,8 +6,8 @@ public class Section8OOPPart2Polymorphism {
 
 //        lesson103();
 //        lesson104();
-        lesson105();
-//        lesson106();
+//        lesson105();
+        lesson106();
 //        lesson107();
 //        lesson108();
 //        lesson109();
@@ -291,11 +291,58 @@ public class Section8OOPPart2Polymorphism {
     }
 
     private static void lesson106() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 106: Encapsulation, Part 2\n");
+
+        EnhancedPlayer tim = new EnhancedPlayer("Tim", 200, "Sword");
+        System.out.println("Remaining health = " + tim.healthRemaining());
         System.out.println();
     }
 
-    private static void lesson107() {
+    public static class EnhancedPlayer {
+        private String fullName;
+        private int healthPercentage;
+        private String weapon;
+
+        public EnhancedPlayer(String fullName) {
+            this(fullName, 100, "Sword");
+        }
+
+        public EnhancedPlayer(String fullName, int health, String weapon) {
+            this.fullName = fullName;
+            if (health <= 0) {
+                this.healthPercentage = 1;
+            } else if (health > 100) {
+                this.healthPercentage = 100;
+            } else {
+                this.healthPercentage = health;
+            }
+            this.weapon = weapon;
+        }
+
+        public void loseHealth(int damage) {
+            if (healthPercentage <= damage) {
+                System.out.println("Player knocked out of the game");
+                healthPercentage -= damage;
+            } else {
+                healthPercentage -= damage;
+            }
+        }
+
+        public int healthRemaining() {
+            return healthPercentage;
+        }
+
+        public void restoreHealth(int extraHealth) {
+
+            healthPercentage += extraHealth;
+            if (healthPercentage > 100) {
+                System.out.println("Player restored to 100%");
+                healthPercentage = 100;
+            }
+        }
+    }
+
+        private static void lesson107() {
         System.out.println("Lesson xxx: XXX\n");
         System.out.println();
     }
