@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Scanner;
+
 public class Section8OOPPart2Polymorphism {
     public static void main() {
         System.out.println("Section 8: OOP Part 2 - Polymorphism");
@@ -9,8 +11,8 @@ public class Section8OOPPart2Polymorphism {
 //        lesson105();
 //        lesson106();
 //        lesson107();
-        lesson108();
-//        lesson109();
+//        lesson108();
+        lesson109();
 //        lesson110();
 //        lesson111();
 //        lesson112();
@@ -412,6 +414,15 @@ public class Section8OOPPart2Polymorphism {
             String instanceType = this.getClass().getSimpleName();
             System.out.println(title + " is a " + instanceType + " film");
         }
+
+        public static Movie getMovie(String type, String title) {
+            return switch (type.toUpperCase().charAt(0)) {
+                case 'A' -> new Adventure(title);
+                case 'C' -> new Comedy(title);
+                case 'S' -> new ScienceFiction(title);
+                default -> new Movie(title);
+            };
+        }
     }
 
     static class Adventure extends Movie {
@@ -460,7 +471,24 @@ public class Section8OOPPart2Polymorphism {
     }
 
     private static void lesson109() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 109: Polymorphism, Part 2\n");
+
+//        Movie theMovie = Movie.getMovie("Science", "Star Wars");
+//        theMovie.watchMovie();
+
+        Scanner s = new Scanner(System.in);
+        while (true) {
+            System.out.print("Enter Type or Q to quit): ");
+            String type = s.nextLine();
+            if ("Qq".contains(type)) {
+                break;
+            }
+            System.out.print("Enter Movie Title: ");
+            String title = s.nextLine();
+            Movie movie = Movie.getMovie(type, title);
+            movie.watchMovie();
+        }
+
         System.out.println();
     }
 
