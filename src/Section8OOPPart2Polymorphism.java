@@ -8,8 +8,8 @@ public class Section8OOPPart2Polymorphism {
 //        lesson104();
 //        lesson105();
 //        lesson106();
-        lesson107();
-//        lesson108();
+//        lesson107();
+        lesson108();
 //        lesson109();
 //        lesson110();
 //        lesson111();
@@ -394,8 +394,69 @@ public class Section8OOPPart2Polymorphism {
     }
 
     private static void lesson108() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 108: Polymorphism, Part 1\n");
+
+        Movie theMovie = new Adventure("Star Wars");
+        theMovie.watchMovie();
         System.out.println();
+    }
+
+    public static class Movie {
+        private String title;
+
+        public Movie(String title) {
+            this.title = title;
+        }
+
+        public void watchMovie() {
+            String instanceType = this.getClass().getSimpleName();
+            System.out.println(title + " is a " + instanceType + " film");
+        }
+    }
+
+    static class Adventure extends Movie {
+        public Adventure(String title) {
+            super(title);
+        }
+
+        @Override
+        public void watchMovie() {
+            super.watchMovie();
+            System.out.printf(".. %s%n".repeat(3),
+                    "Pleasant Scene",
+                    "Scary Music",
+                    "Something Bad Happens");
+        }
+    }
+
+    static class Comedy extends Movie {
+        public Comedy(String title) {
+            super(title);
+        }
+
+        @Override
+        public void watchMovie() {
+            super.watchMovie();
+            System.out.printf(".. %s%n".repeat(3),
+                    "Something funny",
+                    "Something even funnier happens",
+                    "Happy Ending");
+        }
+    }
+
+    static class ScienceFiction extends Movie {
+        public ScienceFiction(String title) {
+            super(title);
+        }
+
+        @Override
+        public void watchMovie() {
+            super.watchMovie();
+            System.out.printf(".. %s%n".repeat(3),
+                    "Bad Aliens do Bad Stuff",
+                    "Space Guys Chase Aliens",
+                    "Planet Blows Up");
+        }
     }
 
     private static void lesson109() {
