@@ -657,12 +657,12 @@ public class Section8OOPPart2Polymorphism {
     private static void lesson113() {
         System.out.println("Lesson 113: Polymorphism Challenge Exercise, Part 2\n");
 
-        ElectricCar car3 = new ElectricCar("This is an Electric Car", 25, 4);
+        Car car3 = new ElectricCar("This is an Electric Car", 25, 4);
         car3.startEngine();
         car3.runEngine();
         car3.drive();
 
-        HybridCar car4 = new HybridCar("This is a hybrid Car", 55, 100, 4);
+        Car car4 = new HybridCar("This is a hybrid Car", 55, 100, 4);
         car4.startEngine();
         car4.runEngine();
         car4.drive();
