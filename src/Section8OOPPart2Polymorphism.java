@@ -18,8 +18,8 @@ public class Section8OOPPart2Polymorphism {
 //        lesson112();
 //        lesson113();
 //        lesson114();
-        lesson115();
-//        lesson116();
+//        lesson115();
+        lesson116();
 //        lesson117();
     }
 
@@ -742,7 +742,7 @@ public class Section8OOPPart2Polymorphism {
         secondMeal.printItemizedList();
 
         System.out.println();
-}
+    }
 
     public static class MealOrder {
 
@@ -773,14 +773,20 @@ public class Section8OOPPart2Polymorphism {
             Item.printItem("TOTAL PRICE", getTotalPrice());
         }
 
-        public void addBurgerToppings(String extra1, String extra2, String extra3) {
-            burger.addToppings(extra1, extra2, extra3);
+        public void addBurgerToppings(String extra1, String extra2, String extra3,
+                                      String extra4, String extra5) {
+            if (burger instanceof DeluxeBurger db) {
+                db.addToppings(extra1, extra2, extra3, extra4, extra5);
+            } else {
+                burger.addToppings(extra1, extra2, extra3);
+            }
         }
-
         public void setDrinkSize(String size) {
             drink.setSize(size);
         }
 
+        public void addBurgerToppings(String lettuce, String cheese, String mayo) {
+        }
     }
 
     public static class Burger extends Item {
@@ -847,15 +853,54 @@ public class Section8OOPPart2Polymorphism {
         }
     }
 
-
-
     private static void lesson116() {
-    System.out.println("Lesson xxx: XXX\n");
-    System.out.println();
-}
+        System.out.println("Lesson 116: OOP Master Challenge Exercise, The Bonus\n");
 
-private static void lesson117() {
-    System.out.println("Lesson xxx: XXX\n");
-    System.out.println();
-}
+        MealOrder deluxeMeal = new MealOrder("deluxe", "7-up",
+                "chili");
+        deluxeMeal.addBurgerToppings("AVOCADO", "BACON", "LETTUCE", "CHEESE", "MAYO");
+        deluxeMeal.setDrinkSize("SMALL");
+        deluxeMeal.printItemizedList();
+
+        System.out.println();
+    }
+
+    public static class DeluxeBurger extends Burger {
+
+        Item deluxe1;
+        Item deluxe2;
+
+        public DeluxeBurger(String name, double price) {
+            super(name, price);
+        }
+
+        public void addToppings(String extra1, String extra2, String extra3,
+                                String extra4, String extra5) {
+            super.addToppings(extra1, extra2, extra3);
+            deluxe1 = new Item("TOPPING", extra4, 0);
+            deluxe2 = new Item("TOPPING", extra5, 0);
+        }
+
+        @Override
+        public void printItemizedList() {
+            super.printItemizedList();
+            if (deluxe1 != null) {
+                deluxe1.printItem();
+            }
+            if (deluxe2 != null) {
+                deluxe2.printItem();
+            }
+        }
+
+        @Override
+        public double getExtraPrice(String toppingName) {
+            return 0;
+        }
+    }
+
+
+    private static void lesson117() {
+        System.out.println("Lesson xxx: XXX\n");
+        System.out.println();
+    }
 }
