@@ -13,8 +13,8 @@ public class Section8OOPPart2Polymorphism {
 //        lesson107();
 //        lesson108();
 //        lesson109();
-        lesson110();
-//        lesson111();
+//        lesson110();
+        lesson111();
 //        lesson112();
 //        lesson113();
 //        lesson114();
@@ -527,7 +527,18 @@ public class Section8OOPPart2Polymorphism {
     }
 
     private static void lesson111() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 111: Testing the runtime type using the instanceof operator\n");
+
+        Object unknownObject = Movie.getMovie("S", "Star Wars");
+        if (unknownObject.getClass().getSimpleName() == "Comedy") {
+            Comedy c = (Comedy) unknownObject;
+            c.watchComedy();
+        } else if (unknownObject instanceof Adventure) {
+            ((Adventure) unknownObject).watchAdventure();
+        } else if (unknownObject instanceof ScienceFiction syfy) {
+            syfy.watchScienceFiction();
+        }
+
         System.out.println();
     }
 
