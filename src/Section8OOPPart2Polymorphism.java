@@ -17,8 +17,8 @@ public class Section8OOPPart2Polymorphism {
 //        lesson111();
 //        lesson112();
 //        lesson113();
-        lesson114();
-//        lesson115();
+//        lesson114();
+        lesson115();
 //        lesson116();
 //        lesson117();
     }
@@ -732,20 +732,130 @@ public class Section8OOPPart2Polymorphism {
 
     }
 
-
-
     private static void lesson115() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 115: OOP Master Challenge Exercise, Part 2\n");
+
+        MealOrder secondMeal = new MealOrder("turkey", "7-up",
+                "chili");
+        secondMeal.addBurgerToppings("LETTUCE", "CHEESE", "MAYO");
+        secondMeal.setDrinkSize("SMALL");
+        secondMeal.printItemizedList();
+
         System.out.println();
+}
+
+    public static class MealOrder {
+
+        private Burger burger;
+        private Item drink;
+        private Item side;
+
+        public MealOrder() {
+            this("regular", "coke", "fries");
+        }
+
+        public MealOrder(String burgerType, String drinkType, String sideType) {
+            this.burger = new Burger(burgerType, 4.0);
+            this.drink = new Item("drink", drinkType, 1.00);
+            this.side = new Item("side", sideType, 1.50);
+        }
+
+        public double getTotalPrice() {
+            return side.getAdjustedPrice() + drink.getAdjustedPrice() +
+                    burger.getAdjustedPrice();
+        }
+
+        public void printItemizedList() {
+            burger.printItem();
+            drink.printItem();
+            side.printItem();
+            System.out.println("-".repeat(30));
+            Item.printItem("TOTAL PRICE", getTotalPrice());
+        }
+
+        public void addBurgerToppings(String extra1, String extra2, String extra3) {
+            burger.addToppings(extra1, extra2, extra3);
+        }
+
+        public void setDrinkSize(String size) {
+            drink.setSize(size);
+        }
+
     }
+
+    public static class Burger extends Item {
+
+        private Item extra1;
+        private Item extra2;
+        private Item extra3;
+
+        public Burger(String name, double price) {
+            super("Burger", name, price);
+        }
+
+        @Override
+        public String getName() {
+            return super.getName() + " BURGER";
+        }
+
+        @Override
+        public double getAdjustedPrice() {
+            return getBasePrice() +
+                    ((extra1 == null) ? 0 : extra1.getAdjustedPrice()) +
+                    ((extra2 == null) ? 0 : extra2.getAdjustedPrice()) +
+                    ((extra3 == null) ? 0 : extra3.getAdjustedPrice());
+        }
+
+        public double getExtraPrice(String toppingName) {
+
+            return switch (toppingName.toUpperCase()) {
+                case "AVOCADO", "CHEESE" -> 1.0;
+                case "BACON", "HAM", "SALAMI" -> 1.5;
+                default -> 0.0;
+            };
+        }
+
+        public void addToppings(String extra1, String extra2, String extra3) {
+
+            this.extra1 = new Item("TOPPING", extra1,
+                    getExtraPrice(extra1));
+            this.extra2 = new Item("TOPPING", extra2,
+                    getExtraPrice(extra2));
+            this.extra3 = new Item("TOPPING", extra3,
+                    getExtraPrice(extra3));
+        }
+
+        public void printItemizedList() {
+
+            printItem("BASE BURGER", getBasePrice());
+            if (extra1 != null) {
+                extra1.printItem();
+            }
+            if (extra2 != null) {
+                extra2.printItem();
+            }
+            if (extra3 != null) {
+                extra3.printItem();
+            }
+        }
+
+        @Override
+        public void printItem() {
+            printItemizedList();
+            System.out.println("-".repeat(30));
+            super.printItem();
+        }
+    }
+
+
 
     private static void lesson116() {
-        System.out.println("Lesson xxx: XXX\n");
-        System.out.println();
-    }
+    System.out.println("Lesson xxx: XXX\n");
+    System.out.println();
+}
 
-    private static void lesson117() {
-        System.out.println("Lesson xxx: XXX\n");
-        System.out.println();
-    }
+private static void lesson117() {
+    System.out.println("Lesson xxx: XXX\n");
+    System.out.println();
+}
 }
