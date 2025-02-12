@@ -14,8 +14,8 @@ public class Section8OOPPart2Polymorphism {
 //        lesson108();
 //        lesson109();
 //        lesson110();
-        lesson111();
-//        lesson112();
+//        lesson111();
+        lesson112();
 //        lesson113();
 //        lesson114();
 //        lesson115();
@@ -543,8 +543,126 @@ public class Section8OOPPart2Polymorphism {
     }
 
     private static void lesson112() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 112: Polymorphism Challenge Exercise\n");
+
+        Car car1 = new Car("This is a Car");
+        car1.startEngine();
+        car1.runEngine();
+        car1.drive();
+
+        GasPoweredCar car2 = new GasPoweredCar("This is a Gas Powered Car", 20, 4);
+        car2.startEngine();
+        car2.runEngine();
+        car2.drive();
+
+        ElectricCar car3 = new ElectricCar("This is an Electric Car", 25, 4);
+        car3.startEngine();
+        car3.runEngine();
+        car3.drive();
+
+        HybridCar car4 = new HybridCar("This is a hybrid Car", 55, 100, 4);
+        car4.startEngine();
+        car4.runEngine();
+        car4.drive();
+
+
         System.out.println();
+    }
+
+    public static class Car {
+        String description;
+
+        public Car(String description) {
+            this.description = description;
+        }
+
+        private void startEngine() {
+            System.out.println("Engine Started\n");
+        }
+
+        private void drive() {
+            System.out.println("Driving\n");
+
+        }
+
+        protected void runEngine() {
+            System.out.println("Engine Running\n");
+        }
+
+    }
+
+    public static class GasPoweredCar extends Car {
+        double avgKmPerLitre;
+        int cylinders;
+
+        public GasPoweredCar(String description, double avgKmPerLitre, int cylinders) {
+            super(description);
+            this.avgKmPerLitre = avgKmPerLitre;
+            this.cylinders = cylinders;
+        }
+
+        private void startEngine() {
+            System.out.println("Engine Started with gas\n");
+        }
+
+        private void drive() {
+            System.out.println("Driving on gas\n");
+
+        }
+
+        protected void runEngine() {
+            System.out.println("Engine Running on gas\n");
+        }
+    }
+
+    public static class ElectricCar extends Car {
+        double avgKmPerCharge;
+        int batterySize;
+
+        public ElectricCar(String description, double avgKmPerCharge, int batterySize) {
+            super(description);
+            this.avgKmPerCharge = avgKmPerCharge;
+            this.batterySize = batterySize;
+        }
+
+        private void startEngine() {
+            System.out.println("Battery sending electrons to Engine\n");
+        }
+
+        private void drive() {
+            System.out.println("Electric Motor moving\n");
+
+        }
+
+        protected void runEngine() {
+            System.out.println("Electric Engine powered on\n");
+        }
+    }
+
+    public static class HybridCar extends Car {
+        double avgKmPerLitre;
+        int batterySize;
+        int cylinders;
+
+        public HybridCar(String description, double avgKmPerLitre, int batterySize, int cylinders) {
+            super(description);
+            this.avgKmPerLitre = avgKmPerLitre;
+            this.batterySize = batterySize;
+            this.cylinders = cylinders;
+        }
+
+        private void startEngine() {
+            System.out.println("Engine Started with either gas or electricity\n");
+        }
+
+        private void drive() {
+            System.out.println("Car driving on gas/electricity\n");
+
+        }
+
+        protected void runEngine() {
+            System.out.println("Engine powered by gas/electricity\n");
+        }
     }
 
     private static void lesson113() {
