@@ -12,8 +12,8 @@ public class Section8OOPPart2Polymorphism {
 //        lesson106();
 //        lesson107();
 //        lesson108();
-        lesson109();
-//        lesson110();
+//        lesson109();
+        lesson110();
 //        lesson111();
 //        lesson112();
 //        lesson113();
@@ -438,6 +438,10 @@ public class Section8OOPPart2Polymorphism {
                     "Scary Music",
                     "Something Bad Happens");
         }
+
+        public void watchAdventure() {
+            System.out.println("Watching an Adventure!");
+        }
     }
 
     static class Comedy extends Movie {
@@ -453,6 +457,10 @@ public class Section8OOPPart2Polymorphism {
                     "Something even funnier happens",
                     "Happy Ending");
         }
+
+        public void watchComedy() {
+            System.out.println("Watching a Comedy!");
+        }
     }
 
     static class ScienceFiction extends Movie {
@@ -467,6 +475,10 @@ public class Section8OOPPart2Polymorphism {
                     "Bad Aliens do Bad Stuff",
                     "Space Guys Chase Aliens",
                     "Planet Blows Up");
+        }
+
+        public void watchScienceFiction() {
+            System.out.println("Watching a SciFi Thriller!");
         }
     }
 
@@ -493,7 +505,24 @@ public class Section8OOPPart2Polymorphism {
     }
 
     private static void lesson110() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 110:  Casting with classes, and using Object and var references\n");
+
+        Movie movie = Movie.getMovie("a", "Jaws");
+        movie.watchMovie();
+
+        Adventure jaws = (Adventure) Movie.getMovie("A", "Jaws");
+        jaws.watchMovie();
+
+        Object comedy = Movie.getMovie("C", "Airplane");
+        Comedy comedyMovie = (Comedy) comedy;
+        comedyMovie.watchComedy();
+
+        var airplane = Movie.getMovie("C", "Airplane");
+        airplane.watchMovie();
+
+        var plane = new Comedy("Airplane");
+        plane.watchComedy();
+
         System.out.println();
     }
 
