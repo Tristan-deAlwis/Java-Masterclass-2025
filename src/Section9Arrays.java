@@ -1,12 +1,14 @@
 package src;
 
+import java.util.Arrays;
+
 public class Section9Arrays {
 
     public static void main() {
         System.out.println("Section 9: Arrays");
 
-        lesson119();
-//        lesson120();
+//        lesson119();
+        lesson120();
 //        lesson121();
 //        lesson122();
 //        lesson123();
@@ -49,8 +51,33 @@ public class Section9Arrays {
     }
 
     private static void lesson120() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 120: Arrays Part 2\n");
 
+        int[] newArray;
+        newArray = new int[5];
+        for (int i = 0; i < newArray.length; i++) {
+            newArray[i] = newArray.length - i;
+        }
+        for (int i = 0; i < newArray.length; i++) {
+            System.out.print(newArray[i] + " ");
+        }
+        System.out.println();
+
+        for (int j : newArray) {
+            System.out.print(j + " ");
+        }
+        System.out.println();
+
+        System.out.println(Arrays.toString(newArray));
+        Object objectVariable = newArray;
+        if (objectVariable instanceof  int[]) {
+            System.out.println("objectVariable is really an int array");
+        }
+
+        Object[] objectArray = new Object[3];
+        objectArray[0] = "Hello";
+        objectArray[1] = new StringBuilder("World");
+        objectArray[2] = newArray;
 
         System.out.println();
     }
