@@ -9,6 +9,7 @@ public class Main {
 //        Section5ExpressionsStatementsMore.main();
 //        Section6ControlFlow.main();
 //        Section7OOPPart1Inheritance.main();
-        Section8OOPPart2Polymorphism.main();
+//        Section8OOPPart2Polymorphism.main();
+        Section9Arrays.main();
     }
 }

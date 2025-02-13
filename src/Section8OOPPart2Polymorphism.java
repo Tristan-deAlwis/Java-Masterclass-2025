@@ -6,20 +6,20 @@ public class Section8OOPPart2Polymorphism {
     public static void main() {
         System.out.println("Section 8: OOP Part 2 - Polymorphism");
 
-//        lesson103();
-//        lesson104();
-//        lesson105();
-//        lesson106();
-//        lesson107();
-//        lesson108();
-//        lesson109();
-//        lesson110();
-//        lesson111();
-//        lesson112();
-//        lesson113();
-//        lesson114();
-//        lesson115();
-//        lesson116();
+        lesson103();
+        lesson104();
+        lesson105();
+        lesson106();
+        lesson107();
+        lesson108();
+        lesson109();
+        lesson110();
+        lesson111();
+        lesson112();
+        lesson113();
+        lesson114();
+        lesson115();
+        lesson116();
         lesson117();
     }
 
