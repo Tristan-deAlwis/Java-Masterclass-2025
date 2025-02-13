@@ -19,8 +19,8 @@ public class Section8OOPPart2Polymorphism {
 //        lesson113();
 //        lesson114();
 //        lesson115();
-        lesson116();
-//        lesson117();
+//        lesson116();
+        lesson117();
     }
 
 
@@ -898,9 +898,10 @@ public class Section8OOPPart2Polymorphism {
         }
     }
 
-
     private static void lesson117() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 117: Organizing Java Classes, Packages and Import Statements\n");
+
+
         System.out.println();
     }
 }
