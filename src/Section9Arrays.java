@@ -1,15 +1,16 @@
 package src;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Section9Arrays {
 
-    public static void main() {
+    public static void main(String[] args) {
         System.out.println("Section 9: Arrays");
 
 //        lesson119();
-        lesson120();
-//        lesson121();
+//        lesson120();
+        lesson121();
 //        lesson122();
 //        lesson123();
 //        lesson124();
@@ -83,72 +84,90 @@ public class Section9Arrays {
     }
 
     private static void lesson121() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 121: Using java.util.Arrays (sort, fill, copyOf )\n");
 
+        int[] firstArray = getRandomArray(10);
+        System.out.println(Arrays.toString(firstArray));
+        Arrays.sort(firstArray);
+        System.out.println(Arrays.toString(firstArray));
+
+        int[] secondArray = new int[10];
+        System.out.println(Arrays.toString(secondArray));
+        Arrays.fill(secondArray, 5);
+        System.out.println(Arrays.toString(secondArray));
+
+        int[] thirdArray = getRandomArray(10);
+        System.out.println(Arrays.toString(thirdArray));
+
+        int[] fourthArray = Arrays.copyOf(thirdArray, thirdArray.length);
+        System.out.println(Arrays.toString(fourthArray));
+
+        Arrays.sort(fourthArray);
+        System.out.println(Arrays.toString(thirdArray));
+        System.out.println(Arrays.toString(fourthArray));
+
+        int[] smallerArray = Arrays.copyOf(thirdArray, 5);
+        System.out.println(Arrays.toString(smallerArray));
+
+        int[] largerArray = Arrays.copyOf(thirdArray, 15);
+        System.out.println(Arrays.toString(largerArray));
 
         System.out.println();
     }
 
+    public static int[] getRandomArray(int len) {
+
+        Random random = new Random();
+        int[] newInt = new int[len];
+        for (int i = 0; i < len; i++) {
+            newInt[i] = random.nextInt(100);
+        }
+
+        return newInt;
+    }
+
     private static void lesson122() {
         System.out.println("Lesson xxx: XXX\n");
-
-
         System.out.println();
     }
 
     private static void lesson123() {
         System.out.println("Lesson xxx: XXX\n");
-
-
         System.out.println();
     }
 
     private static void lesson124() {
         System.out.println("Lesson xxx: XXX\n");
-
-
         System.out.println();
     }
 
     private static void lesson125() {
         System.out.println("Lesson xxx: XXX\n");
-
-
         System.out.println();
     }
 
     private static void lesson126() {
         System.out.println("Lesson xxx: XXX\n");
-
-
         System.out.println();
     }
 
     private static void lesson127() {
         System.out.println("Lesson xxx: XXX\n");
-
-
         System.out.println();
     }
 
     private static void lesson128() {
         System.out.println("Lesson xxx: XXX\n");
-
-
         System.out.println();
     }
 
     private static void lesson129() {
         System.out.println("Lesson xxx: XXX\n");
-
-
         System.out.println();
     }
 
     private static void lesson130() {
         System.out.println("Lesson xxx: XXX\n");
-
-
         System.out.println();
     }
 }
