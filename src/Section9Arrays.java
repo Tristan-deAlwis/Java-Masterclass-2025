@@ -10,8 +10,8 @@ public class Section9Arrays {
 
 //        lesson119();
 //        lesson120();
-        lesson121();
-//        lesson122();
+//        lesson121();
+        lesson122();
 //        lesson123();
 //        lesson124();
 //        lesson125();
@@ -127,7 +127,24 @@ public class Section9Arrays {
     }
 
     private static void lesson122() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 122: Finding a Match, Using a Binary Search and testing equality of arrays\n");
+
+        String[] sArray = {"Able", "Jane", "Mark", "Ralph", "David"};
+        Arrays.sort(sArray);
+        System.out.println(Arrays.toString(sArray));
+        if (Arrays.binarySearch(sArray, "Mark") >= 0) {
+            System.out.println("Found Mark in the List");
+        }
+
+        int[] s1 = {1,2,3,4,5};
+        int[] s2 = {1,2,3,4,5, 0};
+
+        if (Arrays.equals(s1, s2)) {
+            System.out.println("Arrays are equal");
+        } else {
+            System.out.println("Arrays are not equal");
+        }
+
         System.out.println();
     }
 

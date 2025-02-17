@@ -2,7 +2,7 @@ package src;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("TEST main.java\n");
+        System.out.println("Running main.java\n");
 
 //        Section3FirstSteps.main();
 //        Section4IntelliJBasics.main();
