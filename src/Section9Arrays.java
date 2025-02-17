@@ -11,8 +11,8 @@ public class Section9Arrays {
 //        lesson119();
 //        lesson120();
 //        lesson121();
-        lesson122();
-//        lesson123();
+//        lesson122();
+        lesson123();
 //        lesson124();
 //        lesson125();
 //        lesson126();
@@ -149,8 +149,38 @@ public class Section9Arrays {
     }
 
     private static void lesson123() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 123: Arrays Challenge Exercise\n");
+
+        int[] randomArray = getRandomArray(10);
+        System.out.println(Arrays.toString(randomArray));
+
+        int[] sortedArray = sortIntegers(new int[] {7,30,35});
+        System.out.println(Arrays.toString(sortedArray));
+
         System.out.println();
+    }
+
+    public static int[] sortIntegers(int[] array) {
+        System.out.println(Arrays.toString(array));
+        int[] sortedArray = Arrays.copyOf(array, array.length);
+        boolean flag = true;
+        int temp;
+        while (flag) {
+            flag = false;
+            for (int i = 0; i < sortedArray.length - 1; i++) {
+                if (sortedArray[i] < sortedArray[i +1]) {
+                    temp = sortedArray[i];
+                    sortedArray[i] = sortedArray[i + 1];
+                    sortedArray[i+1] = temp;
+                    flag = true;
+                    System.out.println("---->" + Arrays.toString(sortedArray));
+                }
+            }
+            System.out.println("-->" + Arrays.toString(sortedArray));
+        }
+
+
+        return sortedArray;
     }
 
     private static void lesson124() {
