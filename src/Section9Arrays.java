@@ -9,16 +9,16 @@ public class Section9Arrays {
     public static void main(String[] args) {
         System.out.println("Section 9: Arrays");
 
-//        lesson119();
-//        lesson120();
-//        lesson121();
-//        lesson122();
-//        lesson123();
-//        lesson125();
-//        lesson126();
-//        lesson127();
-//        lesson128();
-//        lesson129();
+        lesson119();
+        lesson120();
+        lesson121();
+        lesson122();
+        lesson123();
+        lesson125();
+        lesson126();
+        lesson127();
+        lesson128();
+        lesson129();
         lesson130();
     }
 
