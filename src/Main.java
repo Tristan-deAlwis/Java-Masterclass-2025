@@ -10,6 +10,7 @@ public class Main {
 //        Section6ControlFlow.main();
 //        Section7OOPPart1Inheritance.main();
 //        Section8OOPPart2Polymorphism.main();
-        Section9Arrays.main(new String[]{""});
+//        Section9Arrays.main(new String[]{""});
+        Section10ListArrayListLinkedListIteratorAutoboxing.main(new String[]{""});
     }
 }
