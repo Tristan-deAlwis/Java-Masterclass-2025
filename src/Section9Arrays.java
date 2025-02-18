@@ -16,8 +16,8 @@ public class Section9Arrays {
 //        lesson123();
 //        lesson125();
 //        lesson126();
-        lesson127();
-//        lesson128();
+//        lesson127();
+        lesson128();
 //        lesson129();
 //        lesson130();
     }
@@ -272,8 +272,26 @@ public class Section9Arrays {
     }
 
     private static void lesson128() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 128: Reverse Array Challenge\n");
+
+        int[] returnedArray = readIntegers();
+
+        reverse(returnedArray);
+        System.out.println("Final: " + Arrays.toString(returnedArray));
+
         System.out.println();
+    }
+
+    private static void reverse(int[] array) {
+        int maxIndex = array.length - 1;
+        int halfLength = array.length / 2;
+
+        for (int i = 0; i < halfLength; i++) {
+            int temp = array[i];
+            array[i] = array[maxIndex - i];
+            array[maxIndex - i] = temp;
+            System.out.println("--> " + Arrays.toString(array));
+        }
     }
 
     private static void lesson129() {
