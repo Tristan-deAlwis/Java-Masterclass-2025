@@ -11,8 +11,8 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
 
 //        lesson132();
 //        lesson133();
-        lesson134();
-//        lesson135();
+//        lesson134();
+        lesson135();
 //        lesson136();
 //        lesson137();
 //        lesson138();
@@ -152,7 +152,23 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
     }
 
     private static void lesson135() {
-        System.out.println("Lesson xx: XXX\n");
+        System.out.println("Lesson 135: Arrays vs. ArrayLists\n");
+
+        String[] originalArray = new String[] {"First", "Second", "Third"};
+        var originalList = Arrays.asList(originalArray);
+
+        originalList.set(0, "one");
+        System.out.println("list: " + originalList);
+        System.out.println("array: " + Arrays.toString(originalArray));
+
+        originalList.sort(Comparator.naturalOrder());
+        System.out.println("array: " + Arrays.toString(originalArray));
+
+//        originalList.add("fourth");
+
+        List<String> newList = Arrays.asList("Sunday", "Monday", "Tuesday");
+        System.out.println(newList);
+
         System.out.println();
     }
 
