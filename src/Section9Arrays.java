@@ -18,8 +18,8 @@ public class Section9Arrays {
 //        lesson126();
 //        lesson127();
 //        lesson128();
-        lesson129();
-//        lesson130();
+//        lesson129();
+        lesson130();
     }
 
     private static void lesson119() {
@@ -327,7 +327,36 @@ public class Section9Arrays {
     }
 
     private static void lesson130() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 130: Multi-dimensional Arrays\n");
+
+        int[][] array2 = new int[4][4];
+
+        array2[1] = new int[] {10, 20, 30};
+        System.out.println(Arrays.deepToString(array2));
+
+        Object[] anyArray = new Object[3];
+        System.out.println(Arrays.toString(anyArray));
+
+        anyArray[0] = new String[] {"1", "b", "c"};
+        System.out.println(Arrays.deepToString(anyArray));
+
+        anyArray[1] = new String[][]{
+                {"1", "2"},
+                {"3", "4", "5"},
+                {"6", "7", "8", "9"}
+        };
+        System.out.println(Arrays.deepToString(anyArray));
+
+        anyArray[2] = new int[2][2][2];
+//        anyArray[2] = "Hello";
+        System.out.println(Arrays.deepToString(anyArray));
+
+        for (Object element : anyArray) {
+            System.out.println("Element type = " + element.getClass().getSimpleName());
+            System.out.println("Element toString() = " + element);
+            System.out.println(Arrays.deepToString((Object[]) element));
+        }
+
         System.out.println();
     }
 }
