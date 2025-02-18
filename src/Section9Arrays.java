@@ -12,8 +12,7 @@ public class Section9Arrays {
 //        lesson120();
 //        lesson121();
 //        lesson122();
-        lesson123();
-//        lesson124();
+//        lesson123();
 //        lesson125();
 //        lesson126();
 //        lesson127();
@@ -181,11 +180,6 @@ public class Section9Arrays {
 
 
         return sortedArray;
-    }
-
-    private static void lesson124() {
-        System.out.println("Lesson xxx: XXX\n");
-        System.out.println();
     }
 
     private static void lesson125() {
