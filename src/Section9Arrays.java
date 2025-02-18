@@ -2,6 +2,7 @@ package src;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Section9Arrays {
 
@@ -14,8 +15,8 @@ public class Section9Arrays {
 //        lesson122();
 //        lesson123();
 //        lesson125();
-        lesson126();
-//        lesson127();
+//        lesson126();
+        lesson127();
 //        lesson128();
 //        lesson129();
 //        lesson130();
@@ -232,8 +233,42 @@ public class Section9Arrays {
     }
 
     private static void lesson127() {
-        System.out.println("Lesson xxx: XXX\n");
+        System.out.println("Lesson 127: Minimum Element Challenge\n");
+
+        int[] returnedArray = readIntegers();
+        System.out.println(Arrays.toString(returnedArray));
+
+        int returnedMin = findMin(returnedArray);
+        System.out.println("min = " + returnedMin);
+
         System.out.println();
+    }
+
+    private static int[] readIntegers() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a list of integers, separated by commas:");
+        String input = scanner.nextLine();
+
+        String[] splits = input.split(",");
+        int[] values = new int[splits.length];
+
+        for (int i = 0; i < splits.length; i++) {
+            values[i] = Integer.parseInt(splits[i].trim());
+        }
+
+        return values;
+    }
+
+    public static int findMin(int[] array) {
+        int min = Integer.MAX_VALUE;
+
+        for (int el : array) {
+            if (el < min) {
+                min = el;
+            }
+        }
+
+        return min;
     }
 
     private static void lesson128() {
