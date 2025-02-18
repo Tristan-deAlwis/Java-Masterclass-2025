@@ -13,8 +13,8 @@ public class Section9Arrays {
 //        lesson121();
 //        lesson122();
 //        lesson123();
-        lesson125();
-//        lesson126();
+//        lesson125();
+        lesson126();
 //        lesson127();
 //        lesson128();
 //        lesson129();
@@ -205,8 +205,30 @@ public class Section9Arrays {
     }
 
     private static void lesson126() {
-        System.out.println("Lesson xxx: XXX\n");
-        System.out.println();
+        System.out.println("Lesson 126: Variable Arguments (Varargs)\n");
+
+        System.out.println("Hello World again");
+
+        String[] splitStrings = "Hello World again".split(" ");
+        printText(splitStrings);
+
+        System.out.println("_".repeat(20));
+        printText("Hello");
+
+        System.out.println("_".repeat(20));
+        printText("Hello", "World", "again");
+
+        System.out.println("_".repeat(20));
+        printText();
+
+        String[] sArray = {"first", "second", "third", "fourth", "fifth"};
+        System.out.println(String.join(",", sArray));
+    }
+
+    public static void printText(String... textList) {
+        for (String t : textList) {
+            System.out.println(t);
+        }
     }
 
     private static void lesson127() {
