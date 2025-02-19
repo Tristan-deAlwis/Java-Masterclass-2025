@@ -10,8 +10,7 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
 //        lesson133();
 //        lesson134();
 //        lesson135();
-        lesson136();
-//        lesson137();
+//        lesson136();
 //        lesson138();
 //        lesson139();
 //        lesson140();
@@ -208,11 +207,6 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
         }
         list.sort(Comparator.naturalOrder());
         return list;
-    }
-
-    private static void lesson137() {
-        System.out.println("Lesson xx: XXX\n");
-        System.out.println();
     }
 
     private static void lesson138() {
