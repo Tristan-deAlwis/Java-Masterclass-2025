@@ -12,8 +12,8 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
 //        lesson135();
 //        lesson136();
 //        lesson138();
-        lesson139();
-//        lesson140();
+//        lesson139();
+        lesson140();
 //        lesson141();
 //        lesson142();
 //        lesson143();
@@ -340,8 +340,37 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
     }
 
     private static void lesson140() {
-        System.out.println("Lesson xx: XXX\n");
+        System.out.println("Lesson 140: Iterators\n");
+
+        var placesToVisit = new LinkedList<String>();
+
+        placesToVisit.add("Sydney");
+        placesToVisit.add(0, "Canberra");
+        System.out.println(placesToVisit);
+
+        addMoreElements(placesToVisit);
+        System.out.println(placesToVisit);
+
+        testIterator(placesToVisit);
+
         System.out.println();
+    }
+
+    public static void testIterator(LinkedList<String> list) {
+        var iterator = list.listIterator();
+        while (iterator.hasNext()) {
+//            System.out.println(iterator.next());
+            if (iterator.next().equals("Brisbane")) {
+                iterator.add("Lake Wivenhoe");
+            }
+        }
+        while (iterator.hasPrevious()) {
+            System.out.println(iterator.previous());
+        }
+        System.out.println(list);
+
+        var iterator2 = list.listIterator(3);
+        System.out.println(iterator2.previous());
     }
 
     private static void lesson141() {
