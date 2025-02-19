@@ -13,8 +13,8 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
 //        lesson136();
 //        lesson138();
 //        lesson139();
-        lesson140();
-//        lesson141();
+//        lesson140();
+        lesson141();
 //        lesson142();
 //        lesson143();
 //        lesson144();
@@ -374,8 +374,57 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
     }
 
     private static void lesson141() {
-        System.out.println("Lesson xx: XXX\n");
+        System.out.println("Lesson 141: LinkedList Challenge\n");
+
+        LinkedList<Place> cities = new LinkedList<>();
+
+        Place adelaide = new Place("Adelaide", 1374);
+        addPlace(cities, adelaide);
+        addPlace(cities, new Place("adelaide", 1374));
+        addPlace(cities, new Place("Brisbane", 917));
+        addPlace(cities, new Place("Perth", 3293));
+        addPlace(cities, new Place("Alce Prings", 2771));
+        addPlace(cities, new Place("Darwin", 3972));
+        addPlace(cities, new Place("Melobourne", 877));
+        addPlace(cities, new Place("Sydney", 0));
+
+        System.out.println(cities);
+
         System.out.println();
+    }
+
+    record Place(String name, int distance) {
+
+        @Override
+        public String toString() {
+            return String.format("%s (%d)", name, distance);
+        }
+    }
+
+    public static void addPlace(LinkedList<Place> list, Place place) {
+        if (list.contains(place)) {
+            System.out.println("Found duplicate: " + place);
+            return;
+        }
+
+        for (Place p : list) {
+            if (p.name().equalsIgnoreCase(place.name())) {
+                System.out.println("Found duplicate: " + place);
+                return;
+            }
+        }
+
+        int matchedIndex = 0;
+        for (var listPlace: list) {
+            if (place.distance() < listPlace.distance()) {
+                list.add(matchedIndex, place);
+                return;
+            }
+
+            matchedIndex++;
+        }
+
+        list.add(place);
     }
 
     private static void lesson142() {
