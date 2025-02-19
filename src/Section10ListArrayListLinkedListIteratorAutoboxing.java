@@ -1,9 +1,6 @@
 package src;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Section10ListArrayListLinkedListIteratorAutoboxing {
     public static void main(String[] args) {
@@ -12,8 +9,8 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
 //        lesson132();
 //        lesson133();
 //        lesson134();
-        lesson135();
-//        lesson136();
+//        lesson135();
+        lesson136();
 //        lesson137();
 //        lesson138();
 //        lesson139();
@@ -173,8 +170,44 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
     }
 
     private static void lesson136() {
-        System.out.println("Lesson xx: XXX\n");
+        System.out.println("Lesson 136: ArrayList Challenge Part 1\n");
+        ArrayList<String> groceryList = GroceryList();
+        System.out.println(groceryList);
         System.out.println();
+    }
+
+    public static ArrayList<String> GroceryList() {
+        String item;
+        ArrayList<String> list = new ArrayList<>();
+        boolean flag = true;
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Available actions\n0 - to shutdown\n1 - to add item(s) to list (comma delimited list)\n2 - to remove anyitems (comma delimited list)\nEnter a number for which action you want to do");
+        String input = scanner.nextLine();
+
+        while (flag) {
+            switch (input) {
+                case "1" -> {
+                    System.out.println("What would you like to input?");
+                    item = scanner.nextLine();
+                    list.add(item);
+                    System.out.println(list);
+                    return list;
+                } case "2" -> {
+                    System.out.println(list);
+                    System.out.println("What would you like to remove");
+                    item = scanner.nextLine();
+                    list.remove(item);
+                    System.out.println(list);
+                    return list;
+                } default -> {
+                    flag = false;
+                    return list;
+                }
+            }
+        }
+        list.sort(Comparator.naturalOrder());
+        return list;
     }
 
     private static void lesson137() {
