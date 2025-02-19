@@ -14,8 +14,8 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
 //        lesson138();
 //        lesson139();
 //        lesson140();
-        lesson141();
-//        lesson142();
+//        lesson141();
+        lesson142();
 //        lesson143();
 //        lesson144();
 //        lesson145();
@@ -428,8 +428,97 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
     }
 
     private static void lesson142() {
-        System.out.println("Lesson xx: XXX\n");
+        System.out.println("Lesson 142: LinkedList Challenge, Continued\n");
+
+        LinkedList<Place> cities = new LinkedList<>();
+
+        Place adelaide = new Place("Adelaide", 1374);
+        addPlace(cities, adelaide);
+        addPlace(cities, new Place("adelaide", 1374));
+        addPlace(cities, new Place("Brisbane", 917));
+        addPlace(cities, new Place("Perth", 3293));
+        addPlace(cities, new Place("Alce Prings", 2771));
+        addPlace(cities, new Place("Darwin", 3972));
+        addPlace(cities, new Place("Melobourne", 877));
+        addPlace(cities, new Place("Sydney", 0));
+
+        System.out.println(cities);
+
+        var iterator = cities.listIterator();
+        Scanner scanner = new Scanner(System.in);
+        boolean quitLoop = false;
+        boolean forward = true;
+
+        printMenu();
+
+        while (!quitLoop) {
+            if (!iterator.hasPrevious()) {
+                System.out.println("Originating : " + iterator.next());
+                forward = true;
+            }
+            if (!iterator.hasNext()) {
+                System.out.println("Final : " + iterator.previous());
+                forward = false;
+            }
+            System.out.print("Enter Value: ");
+            String menuItem = scanner.nextLine().toUpperCase().substring(0, 1);
+
+            switch (menuItem) {
+                case "F":
+                    System.out.println("User wants to go forward");
+                    if (!forward) {           // Reversing Direction
+                        forward = true;
+                        if (iterator.hasNext()) {
+                            iterator.next();  // Adjust position forward
+                        }
+                    }
+
+                    if (iterator.hasNext()) {
+                        System.out.println(iterator.next());
+                    }
+
+                    break;
+
+                case "B":
+                    System.out.println("User wants to go backwards");
+                    if (forward) {           // Reversing Direction
+                        forward = false;
+                        if (iterator.hasPrevious()) {
+                            iterator.previous();  // Adjust position backwards
+                        }
+                    }
+
+                    if (iterator.hasPrevious()) {
+                        System.out.println(iterator.previous());
+                    }
+                    break;
+
+                case "M":
+                    printMenu();
+                    break;
+
+                case "L":
+                    System.out.println(cities);
+                    break;
+
+                default:
+                    quitLoop = true;
+                    break;
+            }
+        }
+
         System.out.println();
+    }
+
+    public static void printMenu() {
+
+        System.out.println("""
+                Available actions (select word or letter):
+                (F)orward
+                (B)ackwards
+                (L)ist Places
+                (M)enu
+                (Q)uit""");
     }
 
     private static void lesson143() {
