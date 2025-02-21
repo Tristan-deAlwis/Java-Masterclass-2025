@@ -17,8 +17,8 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
 //        lesson141();
 //        lesson142();
 //        lesson143();
-        lesson144();
-//        lesson145();
+//        lesson144();
+        lesson145();
 //        lesson146();
 //        lesson147();
 //        lesson148();
@@ -583,8 +583,47 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
     }
 
     private static void lesson145() {
-        System.out.println("Lesson xx: XXX\n");
+        System.out.println("Lesson 145: Autoboxing & Unboxing Challenge\n");
+
+        Customer bob = new Customer("Bob S", 1000.0);
+        System.out.println(bob);
         System.out.println();
+    }
+
+    record Customer(String name, ArrayList<Double> transactions) {
+        public Customer(String name, double initialDeposit) {
+            this(name.toUpperCase(),
+                    new ArrayList<Double>(500));
+            transactions.add(initialDeposit);
+        }
+    }
+
+    class Bank {
+        private String name;
+        private ArrayList<Customer> customers = new ArrayList<>(5000);
+
+        public Bank(String name) {
+            this.name = name;
+        }
+
+        private Customer getCustomer(String customerName) {
+            for (var customer : customers) {
+                if (customer.name().equalsIgnoreCase(customerName)) {
+                    return customer;
+                }
+            }
+            System.out.printf("Customer (%s) wasn't found %n", customerName);
+
+            return null;
+        }
+
+        public void addNewCustomer(String customerName, double initialDeposit) {
+            if (getCustomer(customerName) == null) {
+                Customer customer = new Customer(customerName, initialDeposit);
+                customers.add(customer);
+                System.out.println("New Customer added: " + customer);
+            }
+        }
     }
 
     private static void lesson146() {
