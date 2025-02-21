@@ -16,8 +16,8 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
 //        lesson140();
 //        lesson141();
 //        lesson142();
-        lesson143();
-//        lesson144();
+//        lesson143();
+        lesson144();
 //        lesson145();
 //        lesson146();
 //        lesson147();
@@ -549,8 +549,37 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
     }
 
     private static void lesson144() {
-        System.out.println("Lesson xx: XXX\n");
+        System.out.println("Lesson 144: Autoboxing and Unboxing related to Arrays & Lists\n");
+
+        Integer[] wrapperArray = new Integer[5];
+        wrapperArray[0] = 50;
+        System.out.println(Arrays.toString(wrapperArray));
+
+        System.out.println(wrapperArray[0].getClass().getName());
+
+        Character[] characterArray = {'a', 'b', 'c', 'd'};
+        System.out.println(Arrays.toString(characterArray));
+
+        var ourList = List.of(1,2,3,4,5);
+        System.out.println(ourList);
+
         System.out.println();
+    }
+
+    private static int returnAnInt(Integer i) {
+        return i;
+    }
+
+    private static Integer returnAnInteger(int i) {
+        return i;
+    }
+
+    private static ArrayList<Integer> getList(Integer... varags) {
+        ArrayList<Integer> aList = new ArrayList<>();
+        for (int i : varags) {
+            aList.add(i);
+        }
+        return aList;
     }
 
     private static void lesson145() {
