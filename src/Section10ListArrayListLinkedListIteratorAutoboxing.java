@@ -15,8 +15,8 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
 //        lesson139();
 //        lesson140();
 //        lesson141();
-        lesson142();
-//        lesson143();
+//        lesson142();
+        lesson143();
 //        lesson144();
 //        lesson145();
 //        lesson146();
@@ -522,8 +522,30 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
     }
 
     private static void lesson143() {
-        System.out.println("Lesson xx: XXX\n");
+        System.out.println("Lesson 143: Introduction to Autoboxing and Unboxing\n");
+
+        Integer boxedInt = Integer.valueOf(15); // preferred but unnecessary
+        Integer deprecatedBoxing = new Integer(15); // deprecated since JDK 9
+        int unboxedInt = boxedInt.intValue(); // unnecessary
+
+//        Automatic
+        Integer autoBoxed = 15;
+        int autoUnboxed = autoBoxed;
+        System.out.println(autoBoxed.getClass().getName());
+//        System.out.println(autoUnboxed.getClass().getName());
+
+        Double resultBoxed = getLiteralDoublePrimitive();
+        double resultUnboxed = getDoubleObject();
+
         System.out.println();
+    }
+
+    public static Double getDoubleObject() {
+        return Double.valueOf(100.00);
+    }
+
+    public static double getLiteralDoublePrimitive() {
+        return 100.0;
     }
 
     private static void lesson144() {
