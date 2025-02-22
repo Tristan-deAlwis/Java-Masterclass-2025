@@ -1,5 +1,7 @@
 package src;
 
+import src.dev.lpa.DayOfTheWeek;
+
 import java.util.*;
 
 public class Section10ListArrayListLinkedListIteratorAutoboxing {
@@ -19,8 +21,8 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
 //        lesson143();
 //        lesson144();
 //        lesson145();
-        lesson146();
-//        lesson147();
+//        lesson146();
+        lesson147();
 //        lesson148();
     }
 
@@ -675,8 +677,29 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
     }
 
     private static void lesson147() {
-        System.out.println("Lesson xx: XXX\n");
+        System.out.println("Lesson 147: Introduction to the enum type\n");
+
+        DayOfTheWeek weekDay = DayOfTheWeek.TUES;
+        System.out.println(weekDay);
+
+        for (int i = 0; i < 10; i++) {
+            weekDay = getRandomDay();
+            System.out.printf("Name is %s, Ordinal Value = %d%n",
+                    weekDay.name(), weekDay.ordinal());
+
+            if (weekDay == DayOfTheWeek.FRI) {
+                System.out.println("Found a Friday!!!");
+            }
+        }
+
         System.out.println();
+    }
+
+    public static DayOfTheWeek getRandomDay() {
+        int randomInteger = new Random().nextInt(7);
+        var allDays = DayOfTheWeek.values();
+
+        return allDays[randomInteger];
     }
 
     private static void lesson148() {
