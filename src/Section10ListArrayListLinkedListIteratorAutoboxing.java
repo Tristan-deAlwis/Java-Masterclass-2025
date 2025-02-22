@@ -9,21 +9,21 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
     public static void main(String[] args) {
         System.out.println("Section 9: Arrays");
 
-//        lesson132();
-//        lesson133();
-//        lesson134();
-//        lesson135();
-//        lesson136();
-//        lesson138();
-//        lesson139();
-//        lesson140();
-//        lesson141();
-//        lesson142();
-//        lesson143();
-//        lesson144();
-//        lesson145();
-//        lesson146();
-//        lesson147();
+        lesson132();
+        lesson133();
+        lesson134();
+        lesson135();
+        lesson136();
+        lesson138();
+        lesson139();
+        lesson140();
+        lesson141();
+        lesson142();
+        lesson143();
+        lesson144();
+        lesson145();
+        lesson146();
+        lesson147();
         lesson148();
     }
 
