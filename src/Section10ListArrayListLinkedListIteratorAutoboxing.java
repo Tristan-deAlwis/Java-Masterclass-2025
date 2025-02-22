@@ -1,6 +1,7 @@
 package src;
 
 import src.dev.lpa.DayOfTheWeek;
+import src.dev.lpa.Topping;
 
 import java.util.*;
 
@@ -22,8 +23,8 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
 //        lesson144();
 //        lesson145();
 //        lesson146();
-        lesson147();
-//        lesson148();
+//        lesson147();
+        lesson148();
     }
 
     private static void lesson132() {
@@ -703,7 +704,31 @@ public class Section10ListArrayListLinkedListIteratorAutoboxing {
     }
 
     private static void lesson148() {
-        System.out.println("Lesson xx: XXX\n");
+        System.out.println("Lesson 148: The enum type continued, with the switch statement\n");
+
+        DayOfTheWeek weekDay = DayOfTheWeek.TUES;
+        System.out.println(weekDay);
+
+        for (int i = 0; i < 10; i++) {
+            weekDay = getRandomDay();
+            switchDayOfWeek(weekDay);
+        }
+
+        for (Topping topping : Topping.values()) {
+            System.out.println(topping.name() + " : " + topping.getPrice());
+        }
+
         System.out.println();
+    }
+
+    public static void switchDayOfWeek(DayOfTheWeek weekDay) {
+        int weekDayInteger = weekDay.ordinal() + 1;
+        switch (weekDay) {
+            case WED -> System.out.println("Wednesday is Day " + weekDayInteger);
+            case SAT -> System.out.println("Saturday is Day " + weekDayInteger);
+            default -> System.out.println(weekDay.name().charAt(0) +
+                    weekDay.name().substring(1).toLowerCase() +
+                    "day is Day " + weekDayInteger);
+        }
     }
 }
