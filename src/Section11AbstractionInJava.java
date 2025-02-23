@@ -33,7 +33,6 @@ public class Section11AbstractionInJava {
         lesson158();
         lesson159();
         lesson160();
-//        lesson161();
 //        lesson162();
 //        lesson163();
     }
@@ -614,11 +613,6 @@ public class Section11AbstractionInJava {
 
 //        OrbitEarth.log("Testing " + new Satellite());
         Test.orbit(new Satellite());
-        System.out.println();
-    }
-
-    private static void lesson161() {
-        System.out.println("Lesson xx: XX\n");
         System.out.println();
     }
 
