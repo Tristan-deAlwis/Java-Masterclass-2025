@@ -31,7 +31,7 @@ public class Section11AbstractionInJava {
         lesson156();
         lesson157();
         lesson158();
-//        lesson159();
+        lesson159();
 //        lesson160();
 //        lesson161();
 //        lesson162();
@@ -341,6 +341,15 @@ public class Section11AbstractionInJava {
         double MILES_TO_KM = 1.60934;
         double KM_TO_MILES = 0.621371;
 
+        default FlightStages transition(FlightStages stage) {
+//            System.out.println("transition not implement on " + getClass().getName());
+//            return null;
+
+            FlightStages nextStage = stage.getNextStage();
+            System.out.println("Transitioning from " + stage + " to " + nextStage);
+            return nextStage;
+        }
+
         void takeOff();
         void land();
         void fly();
@@ -435,6 +444,12 @@ public class Section11AbstractionInJava {
         public void track() {
             System.out.println(getClass().getSimpleName() + "'s coordinates recorded");
         }
+
+        @Override
+        public FlightStages transition(FlightStages stage) {
+            System.out.println(getClass().getSimpleName() + " transitioning");
+            return FlightEnabled.super.transition(stage);
+        }
     }
 
     public static class Truck implements Trackable {
@@ -473,6 +488,11 @@ public class Section11AbstractionInJava {
             if (this != GROUNDED) {
                 System.out.println("Monitoring " + this);
             }
+        }
+
+        public FlightStages getNextStage() {
+            FlightStages[] allStages = values();
+            return allStages[(ordinal() + 1) % allStages.length];
         }
     }
 
@@ -538,8 +558,23 @@ public class Section11AbstractionInJava {
     }
 
     private static void lesson159() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 159: Interfaces, what's new since JDK 8 (default methods & public static methods)\n");
+
+        Test.inFlight(new Jet());
         System.out.println();
+    }
+
+    public class Test {
+
+        private static void inFlight(FlightEnabled flier) {
+            flier.takeOff();
+            flier.transition(FlightStages.LAUNCH);
+            flier.fly();
+            if (flier instanceof Trackable tracked) {
+                tracked.track();
+            }
+            flier.land();
+        }
     }
 
     private static void lesson160() {
