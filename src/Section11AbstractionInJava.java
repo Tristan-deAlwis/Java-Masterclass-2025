@@ -1,6 +1,8 @@
 package src;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 abstract class Mammal extends Section11AbstractionInJava.Animal {
     public Mammal(String type, String size, double weight) {
@@ -28,7 +30,7 @@ public class Section11AbstractionInJava {
         lesson155();
         lesson156();
         lesson157();
-//        lesson158();
+        lesson158();
 //        lesson159();
 //        lesson160();
 //        lesson161();
@@ -443,8 +445,96 @@ public class Section11AbstractionInJava {
     }
 
     private static void lesson158() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 158: Interfaces Part 3\n");
+
+        Bird bird = new Bird();
+
+        LinkedList<FlightEnabled> fliers = new LinkedList<>();
+        fliers.add(bird);
+
+        List<FlightEnabled> betterFliers = new LinkedList<>();
+        betterFliers.add(bird);
+
+        triggerFliers(fliers);
+        flyFliers(fliers);
+        landFliers(fliers);
+
+        triggerFliers(betterFliers);
+        flyFliers(betterFliers);
+        landFliers(betterFliers);
+
         System.out.println();
+    }
+
+    enum FlightStages implements Trackable {GROUNDED, LAUNCH, CRUISE, DATA_COLLECTION;
+
+        @Override
+        public void track() {
+            if (this != GROUNDED) {
+                System.out.println("Monitoring " + this);
+            }
+        }
+    }
+
+    record DragonFly(String name, String type) implements FlightEnabled {
+
+        @Override
+        public void takeOff() {
+
+        }
+
+        @Override
+        public void land() {
+
+        }
+
+        @Override
+        public void fly() {
+
+        }
+    }
+
+    static class Satellite implements OrbitEarth {
+        public void achieveOrbit() {
+            System.out.println("Orbit achieved!");
+        }
+
+        @Override
+        public void takeOff() {
+
+        }
+
+        @Override
+        public void land() {
+
+        }
+
+        @Override
+        public void fly() {
+
+        }
+    }
+
+    interface OrbitEarth extends FlightEnabled {
+        void achieveOrbit();
+    }
+
+    public static void triggerFliers(List<FlightEnabled> fliers) {
+        for (var flier : fliers) {
+            flier.takeOff();
+        }
+    }
+
+    public static void flyFliers(List<FlightEnabled> fliers) {
+        for (var flier : fliers) {
+            flier.fly();
+        }
+    }
+
+    private static void landFliers(List<FlightEnabled> fliers) {
+        for (var flier : fliers) {
+            flier.land();
+        }
     }
 
     private static void lesson159() {
