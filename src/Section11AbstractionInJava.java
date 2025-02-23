@@ -26,7 +26,7 @@ public class Section11AbstractionInJava {
         lesson153();
         lesson154();
         lesson155();
-//        lesson156();
+        lesson156();
 //        lesson157();
 //        lesson158();
 //        lesson159();
@@ -316,8 +316,65 @@ public class Section11AbstractionInJava {
     }
 
     private static void lesson156() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 156: Interfaces Part 1\n");
+
+        Bird bird = new Bird();
+        Animal2 animal = bird;
+        FlightEnabled flier = bird;
+        Trackable tracked = bird;
+
+        animal.move();
+//        flier.move(); // FlightEnable does not have move()
+//        tracked.move(); // Trackable does not have move()
+
+        flier.takeOff();
+        flier.fly();
+        tracked.track();
+        flier.land();
+
         System.out.println();
+    }
+
+    interface FlightEnabled{
+        void takeOff();
+        void land();
+        void fly();
+    }
+    interface Trackable {
+        void track();
+    }
+
+    public static abstract class Animal2 {
+        public abstract void move();
+    }
+
+    public static class Bird extends Animal2 implements FlightEnabled, Trackable {
+
+        @Override
+        public void move() {
+            System.out.println("Flap wings");
+        }
+
+        @Override
+        public void takeOff() {
+            System.out.println(getClass().getSimpleName() + " is taking off");
+        }
+
+        @Override
+        public void land() {
+            System.out.println(getClass().getSimpleName() + " is landing");
+
+        }
+
+        @Override
+        public void fly() {
+            System.out.println(getClass().getSimpleName() + " is flying");
+        }
+
+        @Override
+        public void track() {
+            System.out.println(getClass().getSimpleName() + "'s coordinates recorded");
+        }
     }
 
     private static void lesson157() {
