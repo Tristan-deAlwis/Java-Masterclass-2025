@@ -27,8 +27,8 @@ public class Section11AbstractionInJava {
         lesson154();
         lesson155();
         lesson156();
-//        lesson157();
-//        lesson158();
+        lesson157();
+        lesson158();
 //        lesson159();
 //        lesson160();
 //        lesson161();
@@ -378,8 +378,54 @@ public class Section11AbstractionInJava {
     }
 
     private static void lesson157() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 157: Interfaces Part 2\n");
+
+        Bird bird = new Bird();
+        Animal2 animal = bird;
+        FlightEnabled flier = bird;
+        Trackable tracked = bird;
+
+        animal.move();
+
+        inFlight(flier);
+        inFlight(new Jet());
+
         System.out.println();
+    }
+
+    private static void inFlight(FlightEnabled flier) {
+        flier.takeOff();
+        flier.fly();
+        if (flier instanceof Trackable tracked) {
+            tracked.track();
+        }
+        flier.land();
+    }
+
+    public static class Jet implements FlightEnabled, Trackable {
+
+        @Override
+        public void takeOff() {
+            System.out.println(getClass().getSimpleName() + " is taking off");
+        }
+
+        @Override
+        public void land() {
+            System.out.println(getClass().getSimpleName() + " is landing");
+
+        }
+
+        @Override
+        public void fly() {
+            System.out.println(getClass().getSimpleName() + " is flying");
+        }
+
+        @Override
+        public void track() {
+            System.out.println(getClass().getSimpleName() + "'s coordinates recorded");
+        }
+
+        }
     }
 
     private static void lesson158() {
