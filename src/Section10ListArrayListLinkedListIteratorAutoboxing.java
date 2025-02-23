@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Section10ListArrayListLinkedListIteratorAutoboxing {
     public static void main(String[] args) {
-        System.out.println("Section 9: Arrays");
+        System.out.println("Section 10: List, ArrayList, LinkedList, Iterator, Autoboxing");
 
         lesson132();
         lesson133();
