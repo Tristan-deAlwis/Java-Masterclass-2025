@@ -21,10 +21,10 @@ public class Section11AbstractionInJava {
     public static void main(String[] args) {
         System.out.println("Section 9: Arrays");
 
-//        lesson151();
+        lesson151();
         lesson152();
         lesson153();
-//        lesson154();
+        lesson154();
 //        lesson155();
 //        lesson156();
 //        lesson157();
@@ -184,9 +184,85 @@ public class Section11AbstractionInJava {
     }
 
     private static void lesson154() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 154: Abstract Class Challenge Part 1\n");
+
+        Store.main(new String[]{""});
         System.out.println();
     }
+
+    public static class Store {
+        private static ArrayList<ProductForSale> storeProducts = new ArrayList<>();
+
+        public static void main(String[] args) {
+
+            storeProducts.add(new ArtObject("Oil Painting", 1350,
+                    "Impressionistic work by ABF painted in 2010"));
+
+            storeProducts.add(new ArtObject("Sculpture", 2000,
+                    "Bronze work by JKF, produced in 1950"));
+
+            listProducts();
+        }
+
+        public static void listProducts() {
+
+            for (var item : storeProducts) {
+                System.out.println("-".repeat(30));
+                item.showDetails();
+            }
+        }
+    }
+
+    public static abstract class ProductForSale {
+        protected String type;
+        protected double price;
+        protected String description;
+
+        public ProductForSale(String type, double price, String description) {
+            this.type = type;
+            this.price = price;
+            this.description = description;
+        }
+
+        //        double getSalesPrice(quantity)
+        public double getSalesPrice(int quantity) {
+            return quantity * price;
+        }
+
+//        void printPricedItem(quantity)
+//        print(quantity + line-item price)
+        public void printPricedItem(int quantity) {
+            System.out.printf("%2d quanitity at $%8.2f each, %-15s %-35s %n",
+                    quantity, price, type, description);
+        }
+
+//        abstract showDetails()
+        public abstract void showDetails();
+//        Product Type
+//        Description
+//        Price
+
+//        OrderItem type
+//        Quantity
+//        Product For Sale
+    }
+
+    public static class ArtObject extends ProductForSale {
+
+        public ArtObject(String type, double price, String description) {
+            super(type, price, description);
+        }
+
+        @Override
+        public void showDetails() {
+
+            System.out.println("This " + type + " is a beautiful reproduction");
+            System.out.printf("The price of the piece is $%6.2f %n", price);
+            System.out.println(description);
+        }
+    }
+
+//    2-3 class that extend ProductForSale
 
     private static void lesson155() {
         System.out.println("Lesson xx: XX\n");
