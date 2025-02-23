@@ -5,23 +5,57 @@ public class Section11AbstractionInJava {
         System.out.println("Section 9: Arrays");
 
         lesson151();
-        lesson152();
-        lesson153();
-        lesson154();
-        lesson155();
-        lesson156();
-        lesson157();
-        lesson158();
-        lesson159();
-        lesson160();
-        lesson161();
-        lesson162();
-        lesson163();
+//        lesson152();
+//        lesson153();
+//        lesson154();
+//        lesson155();
+//        lesson156();
+//        lesson157();
+//        lesson158();
+//        lesson159();
+//        lesson160();
+//        lesson161();
+//        lesson162();
+//        lesson163();
     }
 
     private static void lesson151() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 151: Abstract Classes Part 1\n");
         System.out.println();
+    }
+
+    public abstract class Animal {
+
+        protected String type;
+        private String size;
+        private double weight;
+
+        public Animal(String type, String size, double weight) {
+
+            this.type = type;
+            this.size = size;
+            this.weight = weight;
+        }
+
+        public abstract void move(String speed);
+        public abstract void makeNoise();
+    }
+
+    public class Dog extends Animal {
+
+        public Dog(String type, String size, double weight) {
+            super(type, size, weight);
+        }
+
+        @Override
+        public void move(String speed) {
+
+        }
+
+        @Override
+        public void makeNoise() {
+
+        }
     }
 
     private static void lesson152() {
