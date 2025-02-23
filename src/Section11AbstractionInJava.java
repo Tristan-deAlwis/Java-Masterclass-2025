@@ -28,7 +28,7 @@ public class Section11AbstractionInJava {
         lesson155();
         lesson156();
         lesson157();
-        lesson158();
+//        lesson158();
 //        lesson159();
 //        lesson160();
 //        lesson161();
@@ -388,7 +388,6 @@ public class Section11AbstractionInJava {
         animal.move();
 
         inFlight(flier);
-        inFlight(new Jet());
 
         System.out.println();
     }
@@ -400,32 +399,6 @@ public class Section11AbstractionInJava {
             tracked.track();
         }
         flier.land();
-    }
-
-    public static class Jet implements FlightEnabled, Trackable {
-
-        @Override
-        public void takeOff() {
-            System.out.println(getClass().getSimpleName() + " is taking off");
-        }
-
-        @Override
-        public void land() {
-            System.out.println(getClass().getSimpleName() + " is landing");
-
-        }
-
-        @Override
-        public void fly() {
-            System.out.println(getClass().getSimpleName() + " is flying");
-        }
-
-        @Override
-        public void track() {
-            System.out.println(getClass().getSimpleName() + "'s coordinates recorded");
-        }
-
-        }
     }
 
     private static void lesson158() {
