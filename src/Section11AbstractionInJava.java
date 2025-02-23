@@ -1,11 +1,13 @@
 package src;
 
+import java.util.ArrayList;
+
 public class Section11AbstractionInJava {
     public static void main(String[] args) {
         System.out.println("Section 9: Arrays");
 
-        lesson151();
-//        lesson152();
+//        lesson151();
+        lesson152();
 //        lesson153();
 //        lesson154();
 //        lesson155();
@@ -24,7 +26,7 @@ public class Section11AbstractionInJava {
         System.out.println();
     }
 
-    public abstract class Animal {
+    public static abstract class Animal {
 
         protected String type;
         private String size;
@@ -41,7 +43,7 @@ public class Section11AbstractionInJava {
         public abstract void makeNoise();
     }
 
-    public class Dog extends Animal {
+    public static class Dog extends Animal {
 
         public Dog(String type, String size, double weight) {
             super(type, size, weight);
@@ -50,17 +52,77 @@ public class Section11AbstractionInJava {
         @Override
         public void move(String speed) {
 
+            if (speed.equals("slow")) {
+                System.out.println(type + " walking");
+            } else {
+                System.out.println(type + " running");
+            }
         }
 
         @Override
         public void makeNoise() {
 
+            if (type == "Wolf") {
+                System.out.print("Howling! ");
+            } else {
+                System.out.print("Woof! ");
+            }
         }
     }
 
     private static void lesson152() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 152: Abstract Classes Part 2\n");
+
+//        Animal animal = new Animal("animal", "big", 100);
+        Dog dog = new Dog("Wolf", "big", 100);
+        dog.makeNoise();
+        doAnimalStuff(dog);
+
+        ArrayList<Animal> animals = new ArrayList<>();
+        animals.add(dog);
+        animals.add(new Dog("German Shepard", "big", 150));
+        animals.add(new Fish("Goldfish", "small", 1));
+        animals.add(new Fish("Barracuda", "big", 75));
+        animals.add(new Dog("Pug", "small", 20));
+
+        for(Animal animal : animals) {
+            doAnimalStuff(animal);
+        }
+
         System.out.println();
+    }
+
+    private static void doAnimalStuff(Animal animal) {
+
+        animal.makeNoise();
+        animal.move("slow");
+    }
+
+    public static class Fish extends Animal {
+
+        public Fish(String type, String size, double weight) {
+            super(type, size, weight);
+        }
+
+        @Override
+        public void move(String speed) {
+
+            if (speed.equals("slow")) {
+                System.out.println(type + " lazily swimming");
+            } else {
+                System.out.println(type + " darting frantically");
+            }
+        }
+
+        @Override
+        public void makeNoise() {
+
+            if (type == "Goldfish") {
+                System.out.print("swish! ");
+            } else {
+                System.out.print("splash! ");
+            }
+        }
     }
 
     private static void lesson153() {
