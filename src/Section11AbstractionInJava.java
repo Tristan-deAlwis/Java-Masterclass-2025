@@ -336,6 +336,9 @@ public class Section11AbstractionInJava {
     }
 
     interface FlightEnabled{
+        double MILES_TO_KM = 1.60934;
+        double KM_TO_MILES = 0.621371;
+
         void takeOff();
         void land();
         void fly();
@@ -388,6 +391,13 @@ public class Section11AbstractionInJava {
         animal.move();
 
         inFlight(flier);
+        inFlight(new Jet());
+        Trackable truck = new Truck();
+        truck.track();
+
+        double kmsTraveled = 100;
+        double milesTraveled = kmsTraveled * FlightEnabled.KM_TO_MILES;
+        System.out.printf("The truck traveled %.2f km tor %.2f miles%n", kmsTraveled, milesTraveled);
 
         System.out.println();
     }
@@ -399,6 +409,37 @@ public class Section11AbstractionInJava {
             tracked.track();
         }
         flier.land();
+    }
+
+    public static class Jet implements FlightEnabled, Trackable {
+
+        @Override
+        public void takeOff() {
+            System.out.println(getClass().getSimpleName() + " is taking off");
+        }
+
+        @Override
+        public void land() {
+            System.out.println(getClass().getSimpleName() + " is landing");
+
+        }
+
+        @Override
+        public void fly() {
+            System.out.println(getClass().getSimpleName() + " is flying");
+        }
+
+        @Override
+        public void track() {
+            System.out.println(getClass().getSimpleName() + "'s coordinates recorded");
+        }
+    }
+
+    public static class Truck implements Trackable {
+        @Override
+        public void track() {
+            System.out.println(getClass().getSimpleName() + "'s coordinates recorded");
+        }
     }
 
     private static void lesson158() {
