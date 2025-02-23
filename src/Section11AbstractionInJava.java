@@ -33,8 +33,8 @@ public class Section11AbstractionInJava {
         lesson158();
         lesson159();
         lesson160();
-//        lesson162();
-//        lesson163();
+        lesson162();
+        lesson163();
     }
 
     private static void lesson151() {
@@ -617,12 +617,138 @@ public class Section11AbstractionInJava {
     }
 
     private static void lesson162() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 162: Interface Challenge Part 1\n");
         System.out.println();
     }
 
+    enum Geometry {LINE, POINT, POLYGON}
+
+    enum Color {BLACK, BLUE, GREEN, ORANGE, RED}
+
+    enum PointMarker {CIRLCE, PUSH_PIN, STAR, SQUARE, TRIANGLE}
+
+    enum LineMarker {DASHED, DOTTED, SOLID}
+
+    public interface Mappable {
+
+        String JSON_PROPTERY = """
+                "properties": {%s} 
+                """;
+
+        String getLabel();
+
+        Geometry getShape();
+
+        String getMarker();
+
+        default String toJSON() {
+            return """
+                    "type": "%s", "label": "%s", "marker": "%s" 
+                    """.formatted(getShape(), getLabel(), getMarker());
+        }
+
+        static void mapIt(Mappable mappable) {
+            System.out.println(JSON_PROPTERY.formatted(mappable.toJSON()));
+        }
+    }
+
     private static void lesson163() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 163: Interface Challenge Part 2\n");
+
+        List<Mappable> mappables = new ArrayList<>();
+        mappables.add(new Building("Sydney Town Hall", UsageType.GOVERNMENT));
+        mappables.add(new Building("Sydney Opera House", UsageType.ENTERTAINMENT));
+        mappables.add(new Building("Stadium Australia", UsageType.SPORTS));
+
+        mappables.add(new UtilityLine("College St", UtilityType.FIBER_OPTIC));
+        mappables.add(new UtilityLine("Olympic Blvd", UtilityType.WATER));
+
+        for (var m : mappables) {
+            Mappable.mapIt(m);
+        }
+
+
+
         System.out.println();
+    }
+
+    enum UsageType {ENTERTAINMENT, GOVERNMENT, RESIDENTIAL, SPORTS}
+
+    public static class Building implements Mappable{
+        private String name;
+        private UsageType usage;
+
+        public Building(String name, UsageType usage) {
+            this.name = name;
+            this.usage = usage;
+        }
+
+        @Override
+        public String getLabel() {
+            return name + " (" + usage + ")";
+        }
+
+        @Override
+        public Geometry getShape() {
+            return Geometry.POINT;
+        }
+
+        @Override
+        public String getMarker() {
+            return switch (usage) {
+                case ENTERTAINMENT -> Color.GREEN + " " + PointMarker.TRIANGLE;
+                case GOVERNMENT -> Color.RED + " " + PointMarker.STAR;
+                case RESIDENTIAL -> Color.BLUE + " " + PointMarker.SQUARE;
+                case SPORTS -> Color.ORANGE + " " + PointMarker.PUSH_PIN;
+                default -> Color.BLACK + " " + PointMarker.CIRLCE;
+            };
+        }
+
+        @Override
+        public String toJSON() {
+            return Mappable.super.toJSON() + """
+                    , "name": "%s", "usage": "%s" 
+                    """.formatted(name, usage);
+        }
+    }
+
+    enum UtilityType {ELECTRICAL, FIBER_OPTIC, GAS, WATER}
+
+    public static class UtilityLine implements Mappable {
+        private String name;
+        private UtilityType type;
+
+        public UtilityLine(String name, UtilityType type) {
+            this.name = name;
+            this.type = type;
+        }
+
+        @Override
+        public String getLabel() {
+            return name + " (" + type + ")";
+        }
+
+        @Override
+        public Geometry getShape() {
+            return Geometry.LINE;
+        }
+
+        @Override
+        public String getMarker() {
+            return switch (type) {
+                case ELECTRICAL -> Color.RED + " " + LineMarker.DASHED;
+                case FIBER_OPTIC -> Color.GREEN + " " + LineMarker.DOTTED;
+                case GAS -> Color.ORANGE + " " + LineMarker.SOLID;
+                case WATER -> Color.BLUE + " " + LineMarker.SOLID;
+                default -> Color.BLACK + " " + LineMarker.SOLID;
+            };
+        }
+
+        @Override
+        public String toJSON() {
+            return Mappable.super.toJSON() + """
+                    , "name": "%s", "utility": "%s" 
+                    """.formatted(name, type);
+        }
     }
 }
