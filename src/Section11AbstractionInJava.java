@@ -2,13 +2,28 @@ package src;
 
 import java.util.ArrayList;
 
+abstract class Mammal extends Section11AbstractionInJava.Animal {
+    public Mammal(String type, String size, double weight) {
+        super(type, size, weight);
+    }
+
+    @Override
+    public void move(String speed) {
+
+        System.out.print(getExplicitType() + " ");
+        System.out.println(speed.equals("slow") ? "walks" : "runs");
+    }
+
+    public abstract void shedHair();
+}
+
 public class Section11AbstractionInJava {
     public static void main(String[] args) {
         System.out.println("Section 9: Arrays");
 
 //        lesson151();
         lesson152();
-//        lesson153();
+        lesson153();
 //        lesson154();
 //        lesson155();
 //        lesson156();
@@ -41,9 +56,13 @@ public class Section11AbstractionInJava {
 
         public abstract void move(String speed);
         public abstract void makeNoise();
+
+        public final String getExplicitType() {
+            return getClass().getSimpleName() + " (" + type + ")";
+        }
     }
 
-    public static class Dog extends Animal {
+    public static class Dog extends Mammal {
 
         public Dog(String type, String size, double weight) {
             super(type, size, weight);
@@ -53,16 +72,21 @@ public class Section11AbstractionInJava {
         public void move(String speed) {
 
             if (speed.equals("slow")) {
-                System.out.println(type + " walking");
+                System.out.println(getExplicitType() + " walking");
             } else {
-                System.out.println(type + " running");
+                System.out.println(getExplicitType() + " running");
             }
+        }
+
+        @Override
+        public void shedHair() {
+            System.out.println(getExplicitType() + " sheds all the time");
         }
 
         @Override
         public void makeNoise() {
 
-            if (type == "Wolf") {
+            if (type.equals("Wolf")) {
                 System.out.print("Howling! ");
             } else {
                 System.out.print("Woof! ");
@@ -108,16 +132,16 @@ public class Section11AbstractionInJava {
         public void move(String speed) {
 
             if (speed.equals("slow")) {
-                System.out.println(type + " lazily swimming");
+                System.out.println(getExplicitType() + " lazily swimming");
             } else {
-                System.out.println(type + " darting frantically");
+                System.out.println(getExplicitType() + " darting frantically");
             }
         }
 
         @Override
         public void makeNoise() {
 
-            if (type == "Goldfish") {
+            if (type.equals("Goldfish")) {
                 System.out.print("swish! ");
             } else {
                 System.out.print("splash! ");
@@ -126,8 +150,37 @@ public class Section11AbstractionInJava {
     }
 
     private static void lesson153() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 153: Abstract Classes Part 3\n");
+
+        ArrayList<Animal> animals = new ArrayList<>();
+        animals.add(new Horse("Clydesdale", "large", 1000));
+
+        for(Animal animal : animals) {
+            doAnimalStuff(animal);
+            if (animal instanceof Mammal currentMammal) {
+                currentMammal.shedHair();
+            }
+        }
+
         System.out.println();
+    }
+
+    public static class Horse extends Mammal {
+
+        public Horse(String type, String size, double weight) {
+            super(type, size, weight);
+        }
+
+        @Override
+        public void shedHair() {
+
+            System.out.println(getExplicitType() + " sheds in the spring");
+        }
+
+        @Override
+        public void makeNoise() {
+
+        }
     }
 
     private static void lesson154() {
