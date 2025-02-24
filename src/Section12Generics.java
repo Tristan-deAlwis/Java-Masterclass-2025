@@ -9,7 +9,7 @@ public class Section12Generics {
 
         lesson165();
         lesson166();
-//        lesson167();
+        lesson167();
 //        lesson168();
 //        lesson169();
 //        lesson170();
@@ -36,7 +36,7 @@ public class Section12Generics {
         System.out.println();
     }
 
-    record BaseballPlayer(String name, String position){};
+    record BaseballPlayer(String name, String position) implements Player {};
 
     public static class BaseballTeam {
         private String teamName;
@@ -116,6 +116,9 @@ public class Section12Generics {
     private static void lesson166() {
         System.out.println("Lesson 166: Generics Part 2\n");
 
+        var philly = new Affiliation("city", "Philadelphia, PA",
+                "US");
+
         BaseballTeam phillies1 = new BaseballTeam("Philadelphia Phillies");
         BaseballTeam astros1 = new BaseballTeam("Houston Astros");
         scoreResult(phillies1, 3, astros1, 5);
@@ -124,8 +127,9 @@ public class Section12Generics {
         SportsTeam astros2 = new SportsTeam("Houston Astros");
         scoreResult(phillies2, 3, astros2, 5);
 
-        Team<BaseballPlayer> phillies = new Team<>("Philadelphia Phillies");
-        Team<BaseballPlayer> astros = new Team<>("Houston Astros");
+        Team<BaseballPlayer, Affiliation> phillies =
+                new Team<>("Philadelphia Phillies", philly);
+        Team<BaseballPlayer, Affiliation> astros = new Team<>("Houston Astros");
         scoreResult(phillies, 3, astros, 5);
 
         var harper = new BaseballPlayer("B Harper", "Right Fielder");
@@ -137,29 +141,49 @@ public class Section12Generics {
         phillies.listTeamMembers();
 
         SportsTeam afc1 = new SportsTeam ("Adelaide Crows");
-        Team<FootballPlayer> afc = new Team<>("Adelaide Crows");
+        Team<FootballPlayer, String> afc = new Team<>("Adelaide Crows",
+                "City of Adelaide, South Australia, in AU");
         var tex = new FootballPlayer("Tex Walker" , "Centre half forward");
         afc.addTeamMember(tex);
         var rory = new FootballPlayer("Rory Laird", "Midfield");
         afc.addTeamMember(rory);
         afc.listTeamMembers();
 
+        Team<VolleyballPlayer, Affiliation> adelaide = new Team<>("Adelaide Storm");
+        adelaide.addTeamMember(new VolleyballPlayer("N Roberts", "Setter"));
+        adelaide.listTeamMembers();
+
+        var canberra = new Team<VolleyballPlayer, Affiliation>("Canberra Heat");
+        canberra.addTeamMember(new VolleyballPlayer("B Black", "Opposite"));
+        canberra.listTeamMembers();
+        scoreResult(canberra, 0, adelaide, 1);
+
         System.out.println();
     }
 
-    interface Player {}
+    interface Player {
+
+        String name();
+    }
+
     record FootballPlayer(String name, String position) implements Player {}
 
-    public static class Team<T> {
+    public static class Team<T extends Player, S> {
 
         private String teamName;
         private List<T> teamMembers = new ArrayList<>();
         private int totalWins = 0;
         private int totalLosses = 0;
         private int totalTies = 0;
+        private S affiliation;
 
         public Team(String teamName) {
             this.teamName = teamName;
+        }
+
+        public Team(String teamName, S affiliation) {
+            this.teamName = teamName;
+            this.affiliation = affiliation;
         }
 
         public void addTeamMember(T t) {
@@ -171,8 +195,11 @@ public class Section12Generics {
 
         public void listTeamMembers() {
 
-            System.out.println(teamName + " Roster:");
-            System.out.println(teamMembers);
+            System.out.print(teamName + " Roster:");
+            System.out.println((affiliation == null ? "" : " AFFILIATION: "+ affiliation));
+            for (T t : teamMembers) {
+                System.out.println(t.name());
+            }
         }
 
         public int ranking() {
@@ -255,8 +282,28 @@ public class Section12Generics {
     }
 
     private static void lesson167() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 167: Generics Part 3\n");
+
+        Team<VolleyballPlayer, Affiliation> adelaide = new Team<>("Adelaide Storm");
+        adelaide.addTeamMember(new VolleyballPlayer("N Roberts", "Setter"));
+        adelaide.listTeamMembers();
+
+        var canberra = new Team<VolleyballPlayer, Affiliation>("Canberra Heat");
+        canberra.addTeamMember(new VolleyballPlayer("B Black", "Opposite"));
+        canberra.listTeamMembers();
+        scoreResult(canberra, 0, adelaide, 1);
+
         System.out.println();
+    }
+
+    record VolleyballPlayer(String name, String position) implements Player {}
+
+    record Affiliation(String name, String type, String countryCode) {
+
+        @Override
+        public String toString() {
+            return name + " (" + type + " in " + countryCode + ")";
+        }
     }
 
     private static void lesson168() {
