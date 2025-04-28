@@ -13,7 +13,7 @@ public class Section12Generics {
         lesson169();
         lesson170();
         lesson171();
-//        lesson172();
+        lesson172();
 //        lesson173();
 //        lesson174();
 //        lesson175();
@@ -480,7 +480,7 @@ public class Section12Generics {
         Arrays.sort(students);
         System.out.println(Arrays.toString(students));
 
-        System.out.println("result = " + tim.compareTo("Mary"));
+//        System.out.println("result = " + tim.compareTo("Mary"));
 
         System.out.println();
     }
@@ -545,8 +545,77 @@ public class Section12Generics {
     }
 
     private static void lesson172() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 172: Generic Classes as Reference Types: Wildcards & Method Parameters\n");
+
+        int studentCount = 10;
+        List<Student2> students = new ArrayList<>();
+        for (int i = 0; i < studentCount; i++) {
+            students.add(new Student2());
+        }
+        students.add(new LPAStudent());
+        printList(students);
+
+        List<LPAStudent> lpaStudents = new ArrayList<>();
+        for (int i = 0; i < studentCount; i++) {
+            lpaStudents.add(new LPAStudent());
+        }
+        printList(lpaStudents);
+
         System.out.println();
+    }
+
+    public static void printList(List students) {
+
+        for (var student : students) {
+            System.out.println(student);
+        }
+        System.out.println();
+    }
+
+    public static class LPAStudent extends Student2 {
+
+        private double percentComplete;
+
+        public LPAStudent() {
+            percentComplete = random.nextDouble(0, 100.001);
+        }
+
+        @Override
+        public String toString() {
+            return "%s %8.1f%%".formatted(super.toString(), percentComplete);
+        }
+
+        public double getPercentComplete() {
+            return percentComplete;
+        }
+    }
+
+    public static class Student2 {
+
+        private String name;
+        private String course;
+        private int yearStarted;
+
+        protected static Random random = new Random();
+
+        private static String[] firstNames = {"Ann", "Bill", "Cathy", "John", "Tim"};
+        private static String[] courses = {"C++", "Java", "Python"};
+
+        public Student2() {
+            int lastNameIndex = random.nextInt(65, 91);
+            name = firstNames[random.nextInt(5)] + " " + (char) lastNameIndex;
+            course = courses[random.nextInt(3)];
+            yearStarted = random.nextInt(2018, 2023);
+        }
+
+        @Override
+        public String toString() {
+            return "%-15s %-15s %d".formatted(name, course, yearStarted);
+        }
+
+        public int getYearStarted() {
+            return yearStarted;
+        }
     }
 
     private static void lesson173() {
