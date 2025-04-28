@@ -1,8 +1,6 @@
 package src;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Section12Generics {
     public static void main(String[] args) {
@@ -14,7 +12,7 @@ public class Section12Generics {
         lesson168();
         lesson169();
         lesson170();
-//        lesson171();
+        lesson171();
 //        lesson172();
 //        lesson173();
 //        lesson174();
@@ -487,28 +485,62 @@ public class Section12Generics {
         System.out.println();
     }
 
-    private static class Student implements Comparable {
+    public static class StudentGPAComparator implements Comparator<Student> {
 
-        private String name;
+        @Override
+        public int compare(Student o1, Student o2) {
+            return (o1.gpa + o1.name).compareTo(o2.gpa + o2.name);
+        }
+    }
+
+    public static class Student implements Comparable<Student> {
+
+        private static int LAST_ID = 1000;
+        private static Random random = new Random();
+
+        String name;
+        private int id;
+        protected double gpa;
 
         public Student(String name) {
             this.name = name;
+            id = LAST_ID++;
+            gpa = random.nextDouble(1.0, 4.0);
         }
 
         @Override
         public String toString() {
-            return name;
+            return "%d - %s (%.2f)".formatted(id, name, gpa);
         }
 
         @Override
-        public int compareTo(Object o) {
-            Student other = (Student) o;
-            return name.compareTo(other.name);
+        public int compareTo(Student o) {
+            return Integer.valueOf(id).compareTo(Integer.valueOf(o.id));
         }
+
+//    @Override
+//    public int compareTo(Object o) {
+//        Student other = (Student) o;
+//        return name.compareTo(other.name);
+//    }
     }
 
     private static void lesson171() {
-        System.out.println("Lesson xx: XX\n");
+        System.out.println("Lesson 171: Comparable vs. Comparator: Distinctions & Sorting Strategies\n");
+
+        Student tim = new Student ("Tim");
+        Student [] students = {new Student("Zach"), new Student("Tim"),
+                new Student("Ann")};
+
+        Arrays.sort(students);
+        System.out.println(Arrays.toString(students));
+
+        System.out.println("result = " + tim.compareTo(new Student("TIM")));
+
+        Comparator<Student> gpaSorter = new StudentGPAComparator();
+        Arrays.sort(students, gpaSorter.reversed());
+        System.out.println(Arrays.toString(students));
+
         System.out.println();
     }
 
